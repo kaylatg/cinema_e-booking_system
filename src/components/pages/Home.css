@@ -1,0 +1,12 @@
+h1 {
+    text-align: center;
+}
+
+.currentlyShowing-container {
+    display: flex;
+    justify-content: space-around;
+}
+.currentlyShowing-movie {
+    display: flex;
+    height: 500px;
+}
