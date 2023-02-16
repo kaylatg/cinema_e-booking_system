@@ -15,7 +15,7 @@ function Navbar() {
                         <a href="/about">About</a>
                     </li>
                     <li className = "navbar-list-item">
-                        <a href="/contact">Login</a>
+                        <a href="/login">Login</a>
                     </li>
                 </ul>
             </div>
