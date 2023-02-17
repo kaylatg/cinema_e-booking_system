@@ -1,32 +1,36 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import './Navbar.css'
 
 
-function Navbar2() {
+export const Navbar2 = ({stateChanger}) => {
+    const handleLogout = () => {
+        stateChanger(false);
+        localStorage.setItem("isLoggedIn", false);
+    }
+
   return (
     <nav className = "navbar">
         <div className = "navbar-container">
             <a className = "navbar-logo" href="/"><img src="./images/cine_city_logo.png" alt="Photo of cine city logo"/></a>
             <ul className = "navbar-list">
                 <li className = "navbar-list-item">
-                    <a href="/">Home</a>
+                    <Link to ="/">Home</Link>
                 </li>
                 <li className = "navbar-list-item">
-                    <a href="/about">About</a>
+                    <Link to ="/about">About</Link>
                 </li>
                 <li className = "navbar-list-item">
-                    <a href="/my-tickets">My Tickets</a>
+                    <Link to ="/my-tickets">My Tickets</Link>
                 </li>
                 <li className = "navbar-list-item">
-                    <a href="/my-profile">My Profile</a>
+                    <Link to ="/my-profile">My Profile</Link>
                 </li>
                 <li className = "navbar-list-item">
-                    <a href="/logout">Logout</a>
+                    <Link to ="/" onClick={handleLogout}>Logout</Link>
                 </li>
             </ul>
         </div>
     </nav>
   )
 }
-
-export default Navbar2
