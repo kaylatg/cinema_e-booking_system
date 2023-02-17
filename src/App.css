@@ -1,0 +1,15 @@
+body {
+    text-align: center;
+    background-color: #101011;
+    color: #D9D9D9;
+    font-family: 'Lato';
+    font-style: normal;
+    margin-top: 100px;
+  }
+
+  hr {
+    background: linear-gradient(90deg, #B53030 11.1%, #101011 92.86%);
+    height: 3px;
+    border: none;
+    margin: 2%;
+  }

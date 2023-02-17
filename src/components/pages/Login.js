@@ -3,7 +3,6 @@ import '../../App.css'
 import './Login.css'
 import { useNavigate } from "react-router-dom";
 
-
 export const Login = ({stateChanger}) => {
   const navigate = useNavigate();
 
@@ -17,7 +16,7 @@ export const Login = ({stateChanger}) => {
     return (
       <>
         <form className="login">
-	        <h1>Login</h1>
+        <h1>Login</h1>
 	        <div className = "login-form">
 		        <label className = "login-form-email">Email:</label>
 		        <input className = "login-form-email" name="email" placeholder="" />
@@ -27,7 +26,7 @@ export const Login = ({stateChanger}) => {
                 <a className = "login-form-signup" href="/">Don't have an account? Become a cinner!</a>
 
 	        </div>
-	        
+
         </form>
       </>
     )
