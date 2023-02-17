@@ -16,15 +16,14 @@ export const Login = ({stateChanger}) => {
     return (
       <>
         <form className="login">
-        <h1>Login</h1>
+        <h1>Welcome Back Cinner!</h1>
 	        <div className = "login-form">
 		        <label className = "login-form-email">Email:</label>
 		        <input className = "login-form-email" name="email" placeholder="" />
-                <label className = "login-form-password">Password</label>
+            <label className = "login-form-password">Password</label>
 		        <input className = "login-form-password" name="password" placeholder="" />
-                <button className = "login-form-button" onClick = {event => handleSubmit(event)}>Login</button>
-                <a className = "login-form-signup" href="/">Don't have an account? Become a cinner!</a>
-
+            <button className = "login-form-button" onClick = {event => handleSubmit(event)}>Login</button>
+            <a className = "login-form-signup" href="/signup">Don't have an account? Sign up!</a>
 	        </div>
 
         </form>
