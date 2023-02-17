@@ -24,6 +24,8 @@ export const Login = ({stateChanger}) => {
                 <label className = "login-form-password">Password</label>
 		        <input className = "login-form-password" name="password" placeholder="" />
                 <button className = "login-form-button" onClick = {event => handleSubmit(event)}>Login</button>
+                <a className = "login-form-signup" href="/">Don't have an account? Become a cinner!</a>
+
 	        </div>
 	        
         </form>
