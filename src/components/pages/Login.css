@@ -1,0 +1,17 @@
+#loginh1 {
+    text-align: center;
+}
+
+.login-form {
+    display: flex;
+    flex-flow: column; 
+}
+
+.login-form input{
+    text-align: center;
+    width: 30%;
+    background: rgba(217, 217, 217, 0.33);
+    border-radius: 14px;
+    display: inline-block;
+    text-decoration: color;
+}

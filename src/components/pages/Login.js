@@ -1,32 +1,24 @@
 import React from 'react'
 import '../../App.css'
 import './Login.css'
-import { useNavigate } from "react-router-dom";
 
 
-export const Login = ({stateChanger}) => {
-  const navigate = useNavigate();
-
-    const handleSubmit = event => {
-        event.preventDefault();
-        stateChanger(true);
-        localStorage.setItem("isLoggedIn", true);
-        navigate("/");
-    }
-
+function Login() {
     return (
       <>
         <form className="login">
-	        <h1>Login</h1>
+	        <h1 id = "loginh1">Login</h1>
 	        <div className = "login-form">
 		        <label className = "login-form-email">Email:</label>
 		        <input className = "login-form-email" name="email" placeholder="" />
                 <label className = "login-form-password">Password</label>
 		        <input className = "login-form-password" name="password" placeholder="" />
-                <button className = "login-form-button" onClick = {event => handleSubmit(event)}>Login</button>
+                <button className = "login-form-button">Login</button>
 	        </div>
 	        
         </form>
       </>
     )
   }
+  
+  export default Login

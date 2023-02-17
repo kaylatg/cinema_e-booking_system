@@ -1,32 +1,55 @@
 h1 {
-    text-align: center;
+    text-align: left;
+    padding-left: 2%;
+    font-weight: 400;
+}
+
+.logoHome {
+    background: linear-gradient(180deg, #111011 0%, rgba(0, 0, 0, 0) 48.16%, #B53030 100%);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 400px;
+    
+    
+}
+
+.logoHome img {
+    width: 70%;
+    position: center;
 }
 
 .currentlyShowing-container {
     display: flex;
-    justify-content: space-around;
+    height: 30%;
+    overflow-x: auto;
+    flex-flow:row;  
+    
 }
 .currentlyShowing-movie {
     display: flex;
     height: 500px;
+    padding: 2%;
+    width: 100%;
 }
 
 .currentlyShowing-button {
-    width: 100%;
+    width: 90%;
     padding: 20px;
 }
 
-
-
-
-
 .comingSoon-container {
     display: flex;
-    justify-content: space-around;
+    height: 30%;
+    overflow-x: auto;
+    flex-flow:row;  
 }
 .comingSoon-movie {
     display: flex;
     height: 500px;
+    padding: 2%;
+    width: 100%;
 }
 
 
