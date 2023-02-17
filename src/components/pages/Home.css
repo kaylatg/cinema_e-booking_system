@@ -11,6 +11,15 @@ h1 {
     height: 500px;
 }
 
+.currentlyShowing-button {
+    width: 100%;
+    padding: 20px;
+}
+
+
+
+
+
 .comingSoon-container {
     display: flex;
     justify-content: space-around;
@@ -19,3 +28,5 @@ h1 {
     display: flex;
     height: 500px;
 }
+
+

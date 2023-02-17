@@ -2,7 +2,7 @@ import React from 'react'
 import './Navbar.css'
 
 
-function Navbar() {
+function Navbar2() {
   return (
     <nav className = "navbar">
         <div className = "navbar-container">
@@ -15,13 +15,18 @@ function Navbar() {
                     <a href="/about">About</a>
                 </li>
                 <li className = "navbar-list-item">
-                    <a href="/login">Login</a>
+                    <a href="/my-tickets">My Tickets</a>
+                </li>
+                <li className = "navbar-list-item">
+                    <a href="/my-profile">My Profile</a>
+                </li>
+                <li className = "navbar-list-item">
+                    <a href="/logout">Logout</a>
                 </li>
             </ul>
         </div>
     </nav>
   )
 }
-export default Navbar
 
-
+export default Navbar2
