@@ -2,20 +2,8 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import '../../App.css'
 import './Showtimes.css'
-//import { useNavigate } from "react-router-dom";
 
-
-export const Showtimes = ({stateChanger}) => {
-    /*
-    const navigate = useNavigate();
-  
-      const handleSubmit = event => {
-        event.preventDefault();
-        stateChanger(true);
-        localStorage.setItem("isLoggedIn", true);
-        navigate("/login");
-      }
-      */
+export const Showtimes = () => {
   
         return (
           <>
@@ -27,31 +15,31 @@ export const Showtimes = ({stateChanger}) => {
                       <div className = "showtime">
                         <h2>02/23</h2>
                         <hr></hr>
-                        <Link className = "showtime-item" to = "/">1:00 PM</Link>
-                        <Link className = "showtime-item" to = "/">6:00 PM</Link>
-                        <Link className = "showtime-item" to = "/">7:30 PM</Link>
+                        <Link className = "showtime-item" to = "/seats">1:00 PM</Link>
+                        <Link className = "showtime-item" to = "/seats">6:00 PM</Link>
+                        <Link className = "showtime-item" to = "/seats">7:30 PM</Link>
                       </div>
                       <div className = "showtime">
                         <h2>02/24</h2>
                         <hr></hr>
-                        <Link className = "showtime-item" to = "/">1:00 PM</Link>
-                        <Link className = "showtime-item" to = "/">6:00 PM</Link>
-                        <Link className = "showtime-item" to = "/">7:30 PM</Link>
-                        <Link className = "showtime-item" to = "/">9:00 PM</Link>
+                        <Link className = "showtime-item" to = "/seats">1:00 PM</Link>
+                        <Link className = "showtime-item" to = "/seats">6:00 PM</Link>
+                        <Link className = "showtime-item" to = "/seats">7:30 PM</Link>
+                        <Link className = "showtime-item" to = "/seats">9:00 PM</Link>
                       </div>
                       <div className = "showtime">
                         <h2>02/25</h2>
                         <hr></hr>
-                        <Link className = "showtime-item" to = "/">1:00 PM</Link>
-                        <Link className = "showtime-item" to = "/">6:00 PM</Link>
-                        <Link className = "showtime-item" to = "/">7:30 PM</Link>
+                        <Link className = "showtime-item" to = "/seats">1:00 PM</Link>
+                        <Link className = "showtime-item" to = "/seats">6:00 PM</Link>
+                        <Link className = "showtime-item" to = "/seats">7:30 PM</Link>
                       </div>
                       <div className = "showtime">
                         <h2>02/26</h2>
                         <hr></hr>
-                        <Link className = "showtime-item" to = "/">1:00 PM</Link>
-                        <Link className = "showtime-item" to = "/">6:00 PM</Link>
-                        <Link className = "showtime-item" to = "/">7:30 PM</Link>
+                        <Link className = "showtime-item" to = "/seats">1:00 PM</Link>
+                        <Link className = "showtime-item" to = "/seats">6:00 PM</Link>
+                        <Link className = "showtime-item" to = "/seats">7:30 PM</Link>
                       </div>
                     </div>
                 </div>

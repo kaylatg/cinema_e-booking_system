@@ -8,6 +8,8 @@ import About from './components/pages/About'
 import {Login} from './components/pages/Login'
 import {Signup} from './components/pages/Signup'
 import {Showtimes} from './components/pages/Showtimes'
+import {Seats} from './components/pages/Seats'
+import {Tickets} from './components/pages/Tickets'
 
 let routes;
 
@@ -23,6 +25,8 @@ function App() {
             <Route exact path='/' element={<Home />} />
             <Route path='/about' element={<About />} />
             <Route path='/showtimes' element={<Showtimes />} />
+            <Route path='/seats' element={<Seats />} />
+            <Route path='/my-tickets' element={<Tickets />} />
         </Routes>
         </Router>
       );
@@ -36,6 +40,7 @@ function App() {
               <Route path='/login' element={<Login stateChanger = {setIsLoggedIn} />} />
               <Route path='/signup' element={<Signup />} />
               <Route path='/showtimes' element={<Showtimes />} />
+              <Route path='/seats' element={<Seats />} />
           </Routes>
           </Router>
       );
