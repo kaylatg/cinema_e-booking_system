@@ -18,10 +18,8 @@ export const Login = ({stateChanger}) => {
         <form className="login">
         <h1>Welcome Back Cinner!</h1>
 	        <div className = "login-form">
-		        <label className = "login-form-email">Email:</label>
-		        <input className = "login-form-email" name="email" placeholder="" />
-            <label className = "login-form-password">Password</label>
-		        <input className = "login-form-password" name="password" placeholder="" />
+		        <input className = "login-form-email" name="email" placeholder="email" />
+		        <input className = "login-form-password" name="password" placeholder="password" />
             <button className = "login-form-button" onClick = {event => handleSubmit(event)}>Login</button>
             <a className = "login-form-signup" href="/signup">Don't have an account? Sign up!</a>
 	        </div>

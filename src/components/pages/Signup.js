@@ -18,14 +18,10 @@ export const Signup = ({stateChanger}) => {
           <form className="signup">
           <h1>Become a Cinner!</h1>
               <div className = "signup-form">
-                  <label className = "signup-form-email">Email:</label>
-                  <input className = "signup-form-email" name="email" placeholder="" />
-                  <label className = "signup-form-username">Username:</label>
-                  <input className = "signup-form-username" name="username" placeholder="" />
-                  <label className = "signup-form-password">Password:</label>
-                  <input className = "signup-form-password" name="password" placeholder="" />
-                  <label className = "signup-form-verify-password">Password:</label>
-                  <input className = "signup-form-verify-password" name="password" placeholder="" />
+                  <input className = "signup-form-email" name="email" placeholder="email" />
+                  <input className = "signup-form-username" name="username" placeholder="username" />
+                  <input className = "signup-form-password" name="password" placeholder="password" />
+                  <input className = "signup-form-verify-password" name="verify-password" placeholder="verify password" />
                   <button className = "signup-form-button" onClick = {event => handleSubmit(event)}>Signup</button>
                   <a className = "signup-form-login" href="/login">Already have an account? Log in!</a>
   
