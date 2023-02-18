@@ -7,6 +7,7 @@ import Home from './components/pages/Home'
 import About from './components/pages/About'
 import {Login} from './components/pages/Login'
 import {Signup} from './components/pages/Signup'
+import {Book} from './components/pages/Book'
 
 let routes;
 
@@ -21,6 +22,7 @@ function App() {
         <Routes>
             <Route exact path='/' element={<Home />} />
             <Route path='/about' element={<About />} />
+            <Route path='/book' element={<Book />} />
         </Routes>
         </Router>
       );
@@ -33,6 +35,7 @@ function App() {
               <Route path='/about' element={<About />} />
               <Route path='/login' element={<Login stateChanger = {setIsLoggedIn} />} />
               <Route path='/signup' element={<Signup />} />
+              <Route path='/book' element={<Book />} />
           </Routes>
           </Router>
       );

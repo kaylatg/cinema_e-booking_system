@@ -27,6 +27,10 @@ export const Navbar2 = ({stateChanger}) => {
                 <li className = "navbar-list-item">
                     <Link to ="/" onClick={handleLogout}>Logout</Link>
                 </li>
+                <li className = "navbar-list-item">
+                    <label className = "navbar-search-icon">&#x1F50E;</label>
+                    <input className = "navbar-search-box" name="search" placeholder="" />
+                </li>
             </ul>
         </div>
     </nav>
