@@ -7,7 +7,7 @@ import Home from './components/pages/Home'
 import About from './components/pages/About'
 import {Login} from './components/pages/Login'
 import {Signup} from './components/pages/Signup'
-import {Book} from './components/pages/Book'
+import {Showtimes} from './components/pages/Showtimes'
 
 let routes;
 
@@ -22,7 +22,7 @@ function App() {
         <Routes>
             <Route exact path='/' element={<Home />} />
             <Route path='/about' element={<About />} />
-            <Route path='/book' element={<Book />} />
+            <Route path='/showtimes' element={<Showtimes />} />
         </Routes>
         </Router>
       );
@@ -35,7 +35,7 @@ function App() {
               <Route path='/about' element={<About />} />
               <Route path='/login' element={<Login stateChanger = {setIsLoggedIn} />} />
               <Route path='/signup' element={<Signup />} />
-              <Route path='/book' element={<Book />} />
+              <Route path='/showtimes' element={<Showtimes />} />
           </Routes>
           </Router>
       );
