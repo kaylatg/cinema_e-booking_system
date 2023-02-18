@@ -20,9 +20,11 @@ export const Book = ({stateChanger}) => {
         return (
           <>
             <div className = "book">
-                <h1>Example Movie Title</h1>
-                
+                <div className="book-trailer">
+\                    <iframe width="560" height="315" src="https://www.youtube.com/embed/d9MyW72ELq0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
             </div>
           </>
         )
       }
+
