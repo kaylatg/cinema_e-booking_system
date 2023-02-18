@@ -11,6 +11,7 @@ export const Navbar2 = ({stateChanger}) => {
   return (
     <nav className = "navbar">
         <div className = "navbar-container">
+            <h1>Cine City</h1>
             <ul className = "navbar-list">
                 <li className = "navbar-list-item">
                     <Link to ="/">Home</Link>
