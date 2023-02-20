@@ -7,11 +7,31 @@
 }
 
 .tickets h2 {
+    padding-top: 10px;
     text-align: center;
 }
 
-.tickets h4 {
-    padding-left: 200px;
+.ticket h4 {
+    display: inline-block;
+}
+
+.ticket-date {
+    padding-left: 20px;
+}
+
+.ticket-time {
+    padding-left: 10px;
+}
+
+.ticket-age {
+    float: right;
+    padding-right: 20px;
+}
+
+.ticket-seat {
+    width: 70%;
+    padding-left: 20px;
+    padding-top: 20px;
 }
 
 .ticket {
@@ -27,7 +47,7 @@
 .ticket img {
     float: left;
     height: 180px;
-    width: 180px;
+    width: auto;
     border-radius: 28px;
     margin-top: 10px;
     margin-left: 10px;
