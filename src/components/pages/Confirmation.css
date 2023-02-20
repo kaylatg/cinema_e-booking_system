@@ -5,3 +5,10 @@
 .confirmation h1 {
     text-align: center;
 }
+
+.confirmation-button {
+    margin: auto;
+    margin-top: 20px;
+    width: 200px;
+    padding: 10px;
+}

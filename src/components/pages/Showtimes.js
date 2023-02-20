@@ -9,7 +9,7 @@ export const Showtimes = () => {
           <>
             <div className = "showtimes">
                 <div className="showtimes-container">
-\                   <iframe className = "showtimes-trailer" width="560" height="315" src="https://www.youtube.com/embed/d9MyW72ELq0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                   <iframe className = "showtimes-trailer" width="560" height="315" src="https://www.youtube.com/embed/d9MyW72ELq0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     <h1>SHOWTIMES</h1>
                     <div className = "showtime-container">
                       <div className = "showtime">

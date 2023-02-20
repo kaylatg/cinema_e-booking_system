@@ -32,14 +32,19 @@
 }
 
 button {
-    width: 80px;
     border: 2px solid #D9D9D9;
     border-radius: 29px;
     background-color: transparent;
     color: #D9D9D9;
-    margin-top: 1%;
     font-size: 20px;
-    
+    margin: auto;
+    margin-top: 20px;
+    width: 200px;
+    padding: 10px;
+}
+
+button:hover {
+    background: linear-gradient(180deg, #B53030 0%, #111011 85%, #111011 100%);
 }
 
 .login a {
