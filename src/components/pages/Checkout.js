@@ -14,12 +14,30 @@ export const Checkout = () => {
     return (
         <>
         <div className = "checkout">
-        <h1>YOUR CART</h1> 
             <div className = "checkout-container">
                 <div className = "cart">
-                    <h3>Show each ticket here</h3>
-                    <h3>include movie title, age, row/seat, time, date, and price for each ticket</h3>
-                    <h1>Total: $....</h1>
+                <div className = "tickets">
+                <h1>YOUR CART</h1> 
+                <div className = "ticket">
+                    <img className = "ticket-movie" src="https://m.media-amazon.com/images/M/MV5BYjhiNjBlODctY2ZiOC00YjVlLWFlNzAtNTVhNzM1YjI1NzMxXkEyXkFqcGdeQXVyMjQxNTE1MDA@._V1_FMjpg_UX1000_.jpg" alt="Photo of the movie poster for Avatar: The Way of the Water"/>
+                    <h2 className = "ticket-title">Avatar: The Way of the Water</h2>
+                    <h4 className = "ticket-date">2/17/2023</h4>
+                    <h4 className = "ticket-time">7:30 PM</h4>
+                    <h4 className = "ticket-age">Adult</h4>
+                    <h4 className = "ticket-seat">Row C seat 3</h4>
+                    <h4 className = "ticket-price">$10.00</h4>                    
+                </div>
+                <div className = "ticket">
+                    <img className = "ticket-movie" src="https://m.media-amazon.com/images/M/MV5BYjhiNjBlODctY2ZiOC00YjVlLWFlNzAtNTVhNzM1YjI1NzMxXkEyXkFqcGdeQXVyMjQxNTE1MDA@._V1_FMjpg_UX1000_.jpg" alt="Photo of the movie poster for Avatar: The Way of the Water"/>
+                    <h2 className = "ticket-title">Avatar: The Way of the Water</h2>
+                    <h4 className = "ticket-date">2/17/2023</h4>
+                    <h4 className = "ticket-time">7:30 PM</h4>
+                    <h4 className = "ticket-age">Child</h4>
+                    <h4 className = "ticket-seat">Row C seat 4</h4>
+                    <h4 className = "ticket-price">$5.00</h4>                    
+                </div>
+                 </div>
+                    <h1>YOUR TOTAL: $15.00</h1>
                 </div>
                 <div className = "checkout-form">
                     <input className = "checkout-form-email" name="email" placeholder="email" />

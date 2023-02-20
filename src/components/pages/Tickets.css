@@ -29,9 +29,15 @@
 }
 
 .ticket-seat {
-    width: 70%;
+    width: 60%;
     padding-left: 20px;
     padding-top: 20px;
+}
+
+.ticket-price {
+    float: right;
+    padding-top: 20px;
+    padding-right: 20px;
 }
 
 .ticket {

@@ -9,6 +9,7 @@
 }
 
 .checkout-form {
+    padding-top: 20px;
     display: flex;
     flex-flow: column;
     margin: auto;
