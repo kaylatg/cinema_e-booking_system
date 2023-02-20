@@ -4,12 +4,14 @@ import Navbar from './components/Navbar';
 import {Navbar2} from './components/Navbar2';
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate} from 'react-router-dom';
 import Home from './components/pages/Home'
-import About from './components/pages/About'
+import {About} from './components/pages/About'
 import {Login} from './components/pages/Login'
 import {Signup} from './components/pages/Signup'
 import {Showtimes} from './components/pages/Showtimes'
 import {Seats} from './components/pages/Seats'
 import {Tickets} from './components/pages/Tickets'
+import {Checkout} from './components/pages/Checkout'
+import {Confirmation} from './components/pages/Confirmation'
 
 let routes;
 
@@ -27,6 +29,8 @@ function App() {
             <Route path='/showtimes' element={<Showtimes />} />
             <Route path='/seats' element={<Seats />} />
             <Route path='/my-tickets' element={<Tickets />} />
+            <Route path='/checkout' element={<Checkout />} />
+            <Route path='/confirmation' element={<Confirmation />} />
         </Routes>
         </Router>
       );
@@ -41,6 +45,8 @@ function App() {
             <Route path='/signup' element={<Signup />} />
             <Route path='/showtimes' element={<Showtimes />} />
             <Route path='/seats' element={<Seats />} />
+            <Route path='/checkout' element={<Checkout />} />
+            <Route path='/confirmation' element={<Confirmation />} />
           </Routes>
           </Router>
       );

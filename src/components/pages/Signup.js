@@ -21,7 +21,6 @@ export const Signup = ({stateChanger}) => {
                   <input className = "signup-form-verify-password" name="verify-password" placeholder="verify password" />
                   <button className = "signup-form-button" onClick = {event => handleSubmit(event)}>Signup</button>
                   <a className = "signup-form-login" href="/login">Already have an account? Log in!</a>
-  
               </div>
   
           </form>
