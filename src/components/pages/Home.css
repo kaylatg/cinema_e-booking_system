@@ -18,6 +18,7 @@ h1 {
 .logoHome img {
     width: 70%;
     position: center;
+    margin-top: 100px;
 }
 
 .currentlyShowing-container {

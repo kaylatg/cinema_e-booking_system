@@ -8,6 +8,7 @@
 }
 
 .showtime-container {
+    
     display: flex;
     flex-direction: row;
     overflow-x: auto;
@@ -22,6 +23,11 @@
 
 .showtime {
     width: 300px;
+    
+}
+
+.showtimes {
+    margin-top: 100px;
 }
 
 .showtimes a {
