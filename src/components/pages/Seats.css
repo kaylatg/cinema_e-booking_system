@@ -2,3 +2,37 @@
     text-align: center;
     margin-top: 100px;
 }
+
+
+.seats-legend {
+    display: flex;
+    justify-content: center;
+}
+
+.seats-legend svg {
+    padding-top: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.seats {
+    text-align: center;
+    margin: auto;
+}
+
+.seats-row {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    justify-content: center;
+}
+
+.seats-row h2 {
+    padding-right: 10px;
+}
+
+.seat {
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
