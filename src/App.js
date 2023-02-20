@@ -34,13 +34,13 @@ function App() {
       routes = (
         <Router>
         <Navbar />
-          <Routes>
-              <Route exact path='/' element={<Home />} />
-              <Route path='/about' element={<About />} />
-              <Route path='/login' element={<Login stateChanger = {setIsLoggedIn} />} />
-              <Route path='/signup' element={<Signup />} />
-              <Route path='/showtimes' element={<Showtimes />} />
-              <Route path='/seats' element={<Seats />} />
+        <Routes>
+            <Route exact path='/' element={<Home />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/login' element={<Login stateChanger = {setIsLoggedIn} />} />
+            <Route path='/signup' element={<Signup />} />
+            <Route path='/showtimes' element={<Showtimes />} />
+            <Route path='/seats' element={<Seats />} />
           </Routes>
           </Router>
       );
