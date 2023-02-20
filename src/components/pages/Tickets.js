@@ -8,8 +8,8 @@ export const Tickets = () => {
     return (
         <>
         <div className = "tickets">
+        <h1>MY TICKETS</h1> 
             <div className = "tickets-container">
-                <h1>MY TICKETS</h1>
                 <div className = "ticket">
                     <img className = "ticket-movie" src="https://m.media-amazon.com/images/M/MV5BYjhiNjBlODctY2ZiOC00YjVlLWFlNzAtNTVhNzM1YjI1NzMxXkEyXkFqcGdeQXVyMjQxNTE1MDA@._V1_FMjpg_UX1000_.jpg" alt="Photo of the movie poster for Avatar: The Way of the Water"/>
                     <h2 className = "ticket-title">Avatar: The Way of the Water</h2>

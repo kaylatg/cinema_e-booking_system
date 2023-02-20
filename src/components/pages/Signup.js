@@ -7,9 +7,6 @@ export const Signup = ({stateChanger}) => {
   const navigate = useNavigate();
 
     const handleSubmit = event => {
-      event.preventDefault();
-      stateChanger(true);
-      localStorage.setItem("isLoggedIn", true);
       navigate("/login");
     }
 
