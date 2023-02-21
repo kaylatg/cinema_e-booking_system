@@ -8,17 +8,15 @@ export const Login = ({stateChanger}) => {
 
     const handleSubmit = event => {
         event.preventDefault();
-        stateChanger(true);
-        localStorage.setItem("isLoggedIn", true);
-        localStorage.setItem("isAdmin", false);
+        stateChanger(1);
+        localStorage.setItem("isLoggedIn", 1);
         navigate("/");
     }
 
     const handleSubmitAdmin = event => {
       event.preventDefault();
-      stateChanger(true);
-      localStorage.setItem("isLoggedIn", true);
-      localStorage.setItem("isAdmin", true);
+      stateChanger(2);
+      localStorage.setItem("isLoggedIn", 2);
       navigate("/adminhome");
   }
 
