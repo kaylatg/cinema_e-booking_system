@@ -1,0 +1,43 @@
+.adminadjustmovie {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.adminadjustmovie h1 {
+    text-align: center;
+}
+
+.adminadjustmovie a {
+    text-decoration: none;
+    color: #B53030;
+}
+
+.adminshowtime {
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+}
+
+.adminshowtimes {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+    
+}
+
+.adminadjustmovie button {
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    margin-left: 10px;
+}
+
+.adminadjustmovie p:hover {
+    text-decoration: line-through;
+}
+
+.delete-movie button {
+    height: 80px;
+}
