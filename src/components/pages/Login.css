@@ -64,3 +64,9 @@ button:hover {
     padding-left: 10px;
     color: white;
 }
+
+.admin-login {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
