@@ -52,6 +52,7 @@ function App() {
             <Route path='/checkout' element={<Checkout />} />
             <Route path='/confirmation' element={<Confirmation />} />
             <Route path='/my-profile' element={<Profile />} />
+            <Route path='/' element={<handleLogout stateChanger = {setIsLoggedIn} />} />
         </Routes>
         </Router>
       );
