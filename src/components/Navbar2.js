@@ -4,9 +4,8 @@ import './Navbar.css'
 
 export const Navbar2 = ({stateChanger}) => {
     const handleLogout = () => {
-        stateChanger(false);
-        localStorage.setItem("isLoggedIn", false);
-        localStorage.setItem("isAdmin", false);
+        stateChanger(0);
+        localStorage.setItem("isLoggedIn", 0);
     }
 
   return (

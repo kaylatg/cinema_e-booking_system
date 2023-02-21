@@ -22,11 +22,10 @@ import {AdminPromos} from './components/pages/AdminPromos'
 let routes;
 
 function App() {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [isAdmin, setIsAdmin] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(0); // 0 = not logged in, 1 = logged in as user, 2 = logged in as admin
 
 
-    if (localStorage.getItem("isLoggedIn") === "true" && localStorage.getItem("isAdmin") === "true") {
+    if (localStorage.getItem("isLoggedIn") === "2") {
       routes = (
         <Router>
         <Navbar3 stateChanger = {setIsLoggedIn} />
@@ -36,10 +35,11 @@ function App() {
             <Route path='/adminmovies' element={<AdminMovies />} />
             <Route path='/adminadjustmovie' element={<AdminAdjustMovie />} />
             <Route path='/adminpromos' element={<AdminPromos />} />
+            <Route path='/' element={<handleLogout stateChanger = {setIsLoggedIn} />} />
         </Routes>
         </Router>
       );
-    } else if (localStorage.getItem("isLoggedIn") === "true") {
+    } else if (localStorage.getItem("isLoggedIn") === "1") {
       routes = (
         <Router>
         <Navbar2 stateChanger = {setIsLoggedIn} />
@@ -52,6 +52,7 @@ function App() {
             <Route path='/checkout' element={<Checkout />} />
             <Route path='/confirmation' element={<Confirmation />} />
             <Route path='/my-profile' element={<Profile />} />
+            <Route path='/' element={<handleLogout stateChanger = {setIsLoggedIn} />} />
         </Routes>
         </Router>
       );
