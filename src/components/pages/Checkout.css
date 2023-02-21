@@ -45,3 +45,9 @@
     text-decoration: none;
 }
 
+.tickets a {
+    color: red;
+    text-decoration: underline;
+    padding-left: 500px;
+}
+
