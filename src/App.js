@@ -12,14 +12,32 @@ import {Seats} from './components/pages/Seats'
 import {Tickets} from './components/pages/Tickets'
 import {Checkout} from './components/pages/Checkout'
 import {Confirmation} from './components/pages/Confirmation'
+import {AdminHome} from './components/pages/AdminHome'
 
 let routes;
 
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isAdmin, setIsAdmin] = useState(false);
 
 
-    if (localStorage.getItem("isLoggedIn") === "true") {
+    if (localStorage.getItem("isLoggedIn") === "true" && localStorage.getItem("isAdmin") === "true") {
+      routes = (
+        <Router>
+        <Navbar2 stateChanger = {setIsLoggedIn} />
+        <Routes>
+            <Route exact path='/' element={<Home />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/showtimes' element={<Showtimes />} />
+            <Route path='/seats' element={<Seats />} />
+            <Route path='/my-tickets' element={<Tickets />} />
+            <Route path='/checkout' element={<Checkout />} />
+            <Route path='/confirmation' element={<Confirmation />} />
+            <Route path='/adminhome' element={<AdminHome />} />
+        </Routes>
+        </Router>
+      );
+    } else if (localStorage.getItem("isLoggedIn") === "true") {
       routes = (
         <Router>
         <Navbar2 stateChanger = {setIsLoggedIn} />

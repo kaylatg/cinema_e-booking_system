@@ -1,0 +1,12 @@
+.adminhome {
+    margin-top: 100px;
+}
+
+.adminhome h1 {
+    text-align: center;
+}
+
+.admin-buttons {
+    display: flex;
+    flex-direction: column;
+}

@@ -13,6 +13,14 @@ export const Login = ({stateChanger}) => {
         navigate("/");
     }
 
+    const handleSubmitAdmin = event => {
+      event.preventDefault();
+      stateChanger(true);
+      localStorage.setItem("isLoggedIn", true);
+      localStorage.setItem("isAdmin", true);
+      navigate("/adminhome");
+  }
+
     return (
       <>
         <form className="login">
@@ -22,6 +30,7 @@ export const Login = ({stateChanger}) => {
 		        <input className = "login-form-password" name="password" placeholder="password" />
             <button className = "login-form-button" onClick = {event => handleSubmit(event)}>Log in</button>
             <a className = "login-form-signup" href="/signup">Don't have an account? Sign up!</a>
+            <a className = "admin-login" href="/adminhome" onClick = {event => handleSubmitAdmin(event)} >Admin Login</a>
 	        </div>
 
         </form>
