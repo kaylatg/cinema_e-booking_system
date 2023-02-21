@@ -36,6 +36,7 @@ function App() {
             <Route path='/adminmovies' element={<AdminMovies />} />
             <Route path='/adminadjustmovie' element={<AdminAdjustMovie />} />
             <Route path='/adminpromos' element={<AdminPromos />} />
+            <Route path='/' element={<handleLogout stateChanger = {setIsLoggedIn} />} />
         </Routes>
         </Router>
       );
