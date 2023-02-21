@@ -10,6 +10,7 @@ export const Login = ({stateChanger}) => {
         event.preventDefault();
         stateChanger(true);
         localStorage.setItem("isLoggedIn", true);
+        localStorage.setItem("isAdmin", false);
         navigate("/");
     }
 

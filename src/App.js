@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import './App.css';
 import Navbar from './components/Navbar';
 import {Navbar2} from './components/Navbar2';
+import {Navbar3} from './components/Navbar3';
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate} from 'react-router-dom';
 import Home from './components/pages/Home'
 import {About} from './components/pages/About'
@@ -27,7 +28,7 @@ function App() {
     if (localStorage.getItem("isLoggedIn") === "true" && localStorage.getItem("isAdmin") === "true") {
       routes = (
         <Router>
-        <Navbar2 stateChanger = {setIsLoggedIn} />
+        <Navbar3 stateChanger = {setIsLoggedIn} />
         <Routes>
             <Route exact path='/' element={<Home />} />
             <Route path='/about' element={<About />} />
