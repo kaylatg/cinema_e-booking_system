@@ -13,6 +13,7 @@ import {Seats} from './components/pages/Seats'
 import {Tickets} from './components/pages/Tickets'
 import {Checkout} from './components/pages/Checkout'
 import {Confirmation} from './components/pages/Confirmation'
+import {Profile} from './components/pages/Profile'
 import {AdminHome} from './components/pages/AdminHome'
 import {AdminMovies} from './components/pages/AdminMovies'
 import {AdminAdjustMovie} from './components/pages/AdminAdjustMovie'
@@ -31,12 +32,6 @@ function App() {
         <Navbar3 stateChanger = {setIsLoggedIn} />
         <Routes>
             <Route exact path='/' element={<Home />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/showtimes' element={<Showtimes />} />
-            <Route path='/seats' element={<Seats />} />
-            <Route path='/my-tickets' element={<Tickets />} />
-            <Route path='/checkout' element={<Checkout />} />
-            <Route path='/confirmation' element={<Confirmation />} />
             <Route path='/adminhome' element={<AdminHome />} />
             <Route path='/adminmovies' element={<AdminMovies />} />
             <Route path='/adminadjustmovie' element={<AdminAdjustMovie />} />
@@ -56,6 +51,7 @@ function App() {
             <Route path='/my-tickets' element={<Tickets />} />
             <Route path='/checkout' element={<Checkout />} />
             <Route path='/confirmation' element={<Confirmation />} />
+            <Route path='/my-profile' element={<Profile />} />
         </Routes>
         </Router>
       );
