@@ -20,6 +20,10 @@
     height: 300px;
 }
 
+.checkout option {
+    margin-right: 20px;
+}
+
 .checkout button {
     margin: auto;
     margin-top: 20px;

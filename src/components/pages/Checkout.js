@@ -23,7 +23,10 @@ export const Checkout = () => {
                     <h2 className = "ticket-title">Avatar: The Way of the Water</h2>
                     <h4 className = "ticket-date">2/17/2023</h4>
                     <h4 className = "ticket-time">7:30 PM</h4>
-                    <h4 className = "ticket-age">Adult</h4>
+                    <select className = "ticket-age">
+                        <option>Adult</option>
+                        <option>Child</option>
+                    </select>
                     <h4 className = "ticket-seat">Row C seat 3</h4>
                     <h4 className = "ticket-price">$10.00</h4>                    
                 </div>
@@ -32,12 +35,15 @@ export const Checkout = () => {
                     <h2 className = "ticket-title">Avatar: The Way of the Water</h2>
                     <h4 className = "ticket-date">2/17/2023</h4>
                     <h4 className = "ticket-time">7:30 PM</h4>
-                    <h4 className = "ticket-age">Child</h4>
+                    <select className = "ticket-age">
+                        <option>Adult</option>
+                        <option>Child</option>
+                    </select>
                     <h4 className = "ticket-seat">Row C seat 4</h4>
-                    <h4 className = "ticket-price">$5.00</h4>                    
+                    <h4 className = "ticket-price">$10.00</h4>                    
                 </div>
                  </div>
-                    <h1>YOUR TOTAL: $15.00</h1>
+                    <h1>YOUR TOTAL: $20.00</h1>
                 </div>
                 <div className = "checkout-form">
                     <input className = "checkout-form-email" name="email" placeholder="email" />
