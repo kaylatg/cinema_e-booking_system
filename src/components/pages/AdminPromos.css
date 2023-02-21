@@ -1,0 +1,27 @@
+.adminpromos {
+    margin-top: 100px;
+}
+
+.adminpromos h1 {
+    text-align: center;
+}
+
+.adminpromos button {
+    width: 100px;
+    height: 40px;
+}
+
+.adminpromos input {
+    width: 200px;
+    margin-right: 10px;
+}
+
+.adminpromos ul {
+    text-align: left;
+    margin-left: 200px;
+    font-size: 25px;
+}
+
+.adminpromos li:hover {
+    text-decoration: line-through;
+}

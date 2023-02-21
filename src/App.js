@@ -15,6 +15,7 @@ import {Confirmation} from './components/pages/Confirmation'
 import {AdminHome} from './components/pages/AdminHome'
 import {AdminMovies} from './components/pages/AdminMovies'
 import {AdminAdjustMovie} from './components/pages/AdminAdjustMovie'
+import {AdminPromos} from './components/pages/AdminPromos'
 
 let routes;
 
@@ -38,6 +39,7 @@ function App() {
             <Route path='/adminhome' element={<AdminHome />} />
             <Route path='/adminmovies' element={<AdminMovies />} />
             <Route path='/adminadjustmovie' element={<AdminAdjustMovie />} />
+            <Route path='/adminpromos' element={<AdminPromos />} />
         </Routes>
         </Router>
       );
