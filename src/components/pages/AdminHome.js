@@ -11,7 +11,7 @@ export const AdminHome = () => {
             <h1>Admin Home</h1>
             <div className = "admin-buttons">
                 <button classname = "admin-button"><a href = "/AdminMovies">Manage Movies</a></button>
-                <button classname = "admin-button">Manage promotions</button>
+                <button classname = "admin-button"><a href = "/AdminPromos">Manage Promotions</a></button>
             </div>
         </div>
       </>
