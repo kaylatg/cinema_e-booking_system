@@ -6,6 +6,7 @@ export const Navbar3 = ({stateChanger}) => {
     const handleLogout = () => {
         stateChanger(false);
         localStorage.setItem("isLoggedIn", false);
+        localStorage.setItem("isAdmin", false);
     }
 
   return (
