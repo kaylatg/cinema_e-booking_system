@@ -20,7 +20,20 @@ export async function getUser(id) {
     return output;
 }
 
-/* given a user's email and password, return a JWT token and the user object */
+/* given a JWT token, returns 'true' if the token is still valid, 'false' if it is not.
+   Should be called each time site is loaded/refreshed, to determine if a user should stay logged in */
+export async function verifySession(token) {
+    const response = await fetch('http://georgster.com:8081/api/verifySession?' + new URLSearchParams({
+        token: token,
+    }), {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'},
+    });
+    let output = await response.json();
+    return output;
+}
+
+/* given a user's email and password, returns a JWT token that will be valid for a set period of time*/
 export async function login(email, password) {
     const response = await fetch('http://georgster.com:8081/api/login?' + new URLSearchParams({
         email: email,
@@ -33,7 +46,7 @@ export async function login(email, password) {
     return output;
 }
 
-/* Given a user's registration information, create a new user and return the user object */
+/* Given a user's registration information, create a new user and returns "success" on success, "error" on error */
 export async function register(firstname, lastname, email, password) {
     const response = await fetch('http://georgster.com:8081/api/register?' + new URLSearchParams({
         firstname: firstname,
