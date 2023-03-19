@@ -8,13 +8,44 @@
  * will return the correct fields, but with dummy data.
  */
 
-/* given a user id, return the user object */
-export async function getUser(id) {
-    const response = await fetch('http://georgster.com:8081/api/getUser?' + new URLSearchParams({
-        id: id,
+/* given a user's username, return the user object */
+export async function getUser(username) {
+    const response = await fetch('http://georgster.com:8081/api/user/' + username + "?" + new URLSearchParams({
+        username: username,
     }), {
         method: 'GET',
         headers: {'Content-Type': 'application/json'},
+    });
+    let output = await response.json();
+    return output;
+}
+
+/* Given a user's information, update the user's info in the database */
+export async function updateUser(email, password, username, phone, firstname, lastname, promotions, street, city, state, zip, country) {
+    const body = {
+        type: 'CUSTOMER',
+        status: 'PENDING',
+        email: email,
+        password: password,
+        phone: phone,
+        username: username,
+        firstName: firstname,
+        lastName: lastname,
+        recievePromotions: promotions,
+        payments: [],
+        address: {
+            street: street,
+            city: city,
+            state: state,
+            zip: zip,
+            country: country,
+        },
+    };
+
+    const response = await fetch('http://georgster.com:8081/api/user/' + username, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(body),
     });
     let output = await response.json();
     return output;
@@ -46,97 +77,82 @@ export async function login(email, password) {
     return output;
 }
 
-/* Given a user's registration information, create a new user and returns "success" on success, "error" on error */
-export async function register(firstname, lastname, email, password) {
-    const response = await fetch('http://georgster.com:8081/api/register?' + new URLSearchParams({
-        firstname: firstname,
-        lastname: lastname,
+/* Given a user's registration information, creates a new user and returns their data if it saved successfully in the DB, or an error is there was an issue */
+export async function register(email, password, username, phone, firstname, lastname, promotions, street, city, state, zip, country) {
+    const body = {
+        type: 'CUSTOMER',
+        status: 'PENDING',
         email: email,
         password: password,
-    }), {
-        method: 'GET',
-        headers: {'Content-Type': 'application/json'},
-    });
-    let output = await response.json();
-    return output;
-}
+        phone: phone,
+        username: username,
+        firstName: firstname,
+        lastName: lastname,
+        recievePromotions: promotions,
+        payments: [],
+        address: {
+            street: street,
+            city: city,
+            state: state,
+            zip: zip,
+            country: country,
+        },
+    };
 
-/* Given a user's id, return the user's address object */
-export async function getAddressById(id) {
-    const response = await fetch('http://georgster.com:8081/api/getAddress?' + new URLSearchParams({
-        id: id,
-    }), {
-        method: 'GET',
-        headers: {'Content-Type': 'application/json'},
-    });
-    let output = await response.json();
-    return output;
-}
-
-/* Given a user's id, return the user's payment card objects */
-export async function getPaymentCardsById(id) {
-    const response = await fetch('http://georgster.com:8081/api/getCards?' + new URLSearchParams({
-        id: id,
-    }), {
-        method: 'GET',
-        headers: {'Content-Type': 'application/json'},
-    });
-    let output = await response.json();
-    return output;
-}
-
-/* Given a user's id, update their name attributes. Returns "success" on success, "error" on error */
-export async function updateNameById(id, firstname, lastname) {
-    const response = await fetch('http://georgster.com:8081/api/updateName?' + new URLSearchParams({
-        id: id,
-        firstname: firstname,
-        lastname: lastname,
-    }), {
+    const response = await fetch('http://georgster.com:8081/api/register', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(body),
     });
     let output = await response.json();
     return output;
 }
 
-/* Given a user's id, update their address attributes. Returns "success" on success, "error" on error */
-export async function updateAddressById(id, street, city, state, zip) {
-    const response = await fetch('http://georgster.com:8081/api/updateAddress?' + new URLSearchParams({
-        id: id,
-        street: street,
-        city: city,
-        state: state,
-        zip: zip,
-    }), {
+/* Given a user's id, update their password. */
+export async function updatePasswordById(userId, password) {
+    const body = {
+        userId: userId,
+        password: password,
+    };
+
+    const response = await fetch('http://georgster.com:8081/api/user/' + userId + '/credentials', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(body),
     });
     let output = await response.json();
     return output;
 }
 
 /* Given a user's id, add a new card. Returns "success" on success, "error" on error */
-export async function addCardById(userId, cardNumber, cardName, cardExpDate, cardCvv) {
-    const response = await fetch('http://georgster.com:8081/api/addCard?' + new URLSearchParams({
+export async function addCardById(userId, cardNumber, cardName, cardExpDate, cardCvv, street, city, state, zip, country) {
+    const body = {
         userId: userId,
+        address: {
+            street: street,
+            city: city,
+            state: state,
+            zip: zip,
+            country: country,
+        },
         cardNumber: cardNumber,
         cardName: cardName,
         cardExpDate: cardExpDate,
         cardCvv: cardCvv,
-    }), {
+    };
+
+    const response = await fetch('http://georgster.com:8081/api/user/' + userId + '/payment/add',{
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(body),
     });
     let output = await response.json();
     return output;
 }
 
 /* Given a user's id, remove a card. Returns "success" on success, "error" on error */
-export async function removeCardById(userId, cardNumber) {
-    const response = await fetch('http://georgster.com:8081/api/removeCard?' + new URLSearchParams({
-        userId: userId,
-        cardNumber: cardNumber,
-    }), {
+export async function removeCardById(userId, cardId) {
+    const response = await fetch('http://georgster.com:8081/api/user/' + userId + '/payment/' + cardId + '/remove', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
     });
