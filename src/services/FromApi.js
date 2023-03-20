@@ -10,7 +10,7 @@
 
 /* given a user's username, return the user object */
 export async function getUser(username) {
-    const response = await fetch('http://georgster.com:8081/api/user/' + username + "?" + new URLSearchParams({
+    const response = await fetch('http://localhost:8081/api/user/' + username + "?" + new URLSearchParams({
         username: username,
     }), {
         method: 'GET',
@@ -42,7 +42,7 @@ export async function updateUser(email, password, username, phone, firstname, la
         },
     };
 
-    const response = await fetch('http://georgster.com:8081/api/user/' + username, {
+    const response = await fetch('http://localhost:8081/api/user/' + username, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(body),
@@ -54,7 +54,7 @@ export async function updateUser(email, password, username, phone, firstname, la
 /* given a JWT token, returns 'true' if the token is still valid, 'false' if it is not.
    Should be called each time site is loaded/refreshed, to determine if a user should stay logged in */
 export async function verifySession(token) {
-    const response = await fetch('http://georgster.com:8081/api/verifySession?' + new URLSearchParams({
+    const response = await fetch('http://localhost:8081/api/verifySession?' + new URLSearchParams({
         token: token,
     }), {
         method: 'GET',
@@ -66,7 +66,7 @@ export async function verifySession(token) {
 
 /* given a user's email and password, returns a JWT token that will be valid for a set period of time*/
 export async function login(email, password) {
-    const response = await fetch('http://georgster.com:8081/api/login?' + new URLSearchParams({
+    const response = await fetch('http://localhost:8081/api/login?' + new URLSearchParams({
         email: email,
         password: password,
     }), {
@@ -99,7 +99,7 @@ export async function register(email, password, username, phone, firstname, last
         },
     };
 
-    const response = await fetch('http://georgster.com:8081/api/register', {
+    const response = await fetch('http://localhost:8081/api/register', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(body),
@@ -115,7 +115,7 @@ export async function updatePasswordById(userId, password) {
         password: password,
     };
 
-    const response = await fetch('http://georgster.com:8081/api/user/' + userId + '/credentials', {
+    const response = await fetch('http://localhost:8081/api/user/' + userId + '/credentials', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(body),
@@ -141,7 +141,7 @@ export async function addCardById(userId, cardNumber, cardName, cardExpDate, car
         cardCvv: cardCvv,
     };
 
-    const response = await fetch('http://georgster.com:8081/api/user/' + userId + '/payment/add',{
+    const response = await fetch('http://localhost:8081/api/user/' + userId + '/payment/add',{
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(body),
@@ -152,7 +152,7 @@ export async function addCardById(userId, cardNumber, cardName, cardExpDate, car
 
 /* Given a user's id, remove a card. Returns "success" on success, "error" on error */
 export async function removeCardById(userId, cardId) {
-    const response = await fetch('http://georgster.com:8081/api/user/' + userId + '/payment/' + cardId + '/remove', {
+    const response = await fetch('http://localhost:8081/api/user/' + userId + '/payment/' + cardId + '/remove', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
     });
