@@ -48,6 +48,7 @@ export const Login = ({stateChanger}) => {
 		        <input className = "login-form-password" ref = {passRef} name="password" placeholder="password" />
             <button className = "login-form-button" onClick = {event => handleSubmit(event)}>Log in</button>
             <a className = "login-form-signup" href="/signup">Don't have an account? Sign up!</a>
+            <a className = "login-form-signup" href="/forgotpassword">Forgot password</a>
             <a className = "admin-login" href="/adminhome" onClick = {event => handleSubmitAdmin(event)} >Admin Login</a>
             <p id = "errorMessage"></p>
           </div>
