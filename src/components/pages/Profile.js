@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import '../../App.css'
 import './Profile.css'
 import './Signup.css'
@@ -22,6 +22,32 @@ export const Profile = ({stateChanger}) => {
   const zipRef = React.createRef();
   const countryRef = React.createRef();
   const promoRef = React.createRef();
+  const [profileform, setProfileForm] = useState(
+    (<div className="profile">
+     <h1>Edit profile</h1>
+         <div className = "profile-container">
+           <img src = "https://images.nightcafe.studio//assets/profile.png?tr=w-1600,c-at_max"></img>
+             <label className = "signup-form-email" ref = {emailRef} name="email" placeholder="email" />
+             <input className = "signup-form-username" ref = {userRef} name="username" placeholder="username" />
+             <input className = "signup-form-password" ref = {passRef} name="password" placeholder="password" />
+             <input className = "signup-form-verify-password" ref = {verPassRef} name="verify-password" placeholder="verify password" />
+             <input className = "signup-form-phone" ref = {phoneRef} name="phone" placeholder="phone number"/>
+             <input className = "signup-form-first-name" ref = {fnameRef} name="first-name" placeholder="first name"/>
+             <input className = "signup-form-last-name" ref = {lnameRef} name="last-name" placeholder="last name"/>
+             <input className = "signup-form-last-name" ref = {streetRef} name="street-address" placeholder="street address"/>
+             <input className = "signup-form-last-name" ref = {cityRef} name="city" placeholder="city"/>
+             <input className = "signup-form-last-name" ref = {stateRef} name="state" placeholder="state"/>
+             <input className = "signup-form-last-name" ref = {zipRef} name="zip" placeholder="zip"/>
+             <input className = "signup-form-last-name" ref = {countryRef} name="country" placeholder="country"/>
+             <button className = "update-profile-button" onClick = {event => handleSubmit(event)}>Update Profile</button>
+         </div>
+         <div className = "signup-form-promotions">
+               <input className= "signup-form-checkbox" ref = {promoRef} type = "checkbox" id = "promotions" name = "promotions"></input>
+               <label className = "signup-form-checkbox-label"for = "promotions">Receive emails from Cine City to get exclusive movie promotions and discounts.</label>
+             </div>
+ 
+     </div>)
+  );
 
 
 
@@ -68,35 +94,37 @@ export const Profile = ({stateChanger}) => {
       */
      // Then you should fill in the fields with the user's current data
      // Also add a checkbox to allow the user to update whether or not they want to recieve promotions
+
+     setProfileForm(<div className="profile">
+     <h1>Edit profile</h1>
+         <div className = "profile-container">
+           <img src = "https://images.nightcafe.studio//assets/profile.png?tr=w-1600,c-at_max"></img>
+             <label className = "signup-form-email" ref = {emailRef} name="email" placeholder={response.email} />
+             <input className = "signup-form-username" ref = {userRef} name="username" placeholder={response.username} />
+             <input className = "signup-form-password" ref = {passRef} name="password" placeholder="password" />
+             <input className = "signup-form-verify-password" ref = {verPassRef} name="verify-password" placeholder="verify password" />
+             <input className = "signup-form-phone" ref = {phoneRef} name="phone" placeholder="phone number"/>
+             <input className = "signup-form-first-name" ref = {fnameRef} name="first-name" placeholder="first name"/>
+             <input className = "signup-form-last-name" ref = {lnameRef} name="last-name" placeholder="last name"/>
+             <input className = "signup-form-last-name" ref = {streetRef} name="street-address" placeholder="street address"/>
+             <input className = "signup-form-last-name" ref = {cityRef} name="city" placeholder="city"/>
+             <input className = "signup-form-last-name" ref = {stateRef} name="state" placeholder="state"/>
+             <input className = "signup-form-last-name" ref = {zipRef} name="zip" placeholder="zip"/>
+             <input className = "signup-form-last-name" ref = {countryRef} name="country" placeholder="country"/>
+             <button className = "update-profile-button" onClick = {event => handleSubmit(event)}>Update Profile</button>
+         </div>
+         <div className = "signup-form-promotions">
+               <input className= "signup-form-checkbox" ref = {promoRef} type = "checkbox" id = "promotions" name = "promotions"></input>
+               <label className = "signup-form-checkbox-label"for = "promotions">Receive emails from Cine City to get exclusive movie promotions and discounts.</label>
+             </div>
+ 
+     </div>);
     })
 
 
       return (
         <>
-          <div className="profile">
-          <h1>Edit profile</h1>
-              <div className = "profile-container">
-                <img src = "https://images.nightcafe.studio//assets/profile.png?tr=w-1600,c-at_max"></img>
-                  <label className = "signup-form-email" ref = {emailRef} name="email" placeholder="email" />
-                  <input className = "signup-form-username" ref = {userRef} name="username" placeholder="username" />
-                  <input className = "signup-form-password" ref = {passRef} name="password" placeholder="password" />
-                  <input className = "signup-form-verify-password" ref = {verPassRef} name="verify-password" placeholder="verify password" />
-                  <input className = "signup-form-phone" ref = {phoneRef} name="phone" placeholder="phone number"/>
-                  <input className = "signup-form-first-name" ref = {fnameRef} name="first-name" placeholder="first name"/>
-                  <input className = "signup-form-last-name" ref = {lnameRef} name="last-name" placeholder="last name"/>
-                  <input className = "signup-form-last-name" ref = {streetRef} name="street-address" placeholder="street address"/>
-                  <input className = "signup-form-last-name" ref = {cityRef} name="city" placeholder="city"/>
-                  <input className = "signup-form-last-name" ref = {stateRef} name="state" placeholder="state"/>
-                  <input className = "signup-form-last-name" ref = {zipRef} name="zip" placeholder="zip"/>
-                  <input className = "signup-form-last-name" ref = {countryRef} name="country" placeholder="country"/>
-                  <button className = "update-profile-button" onClick = {event => handleSubmit(event)}>Update Profile</button>
-              </div>
-              <div className = "signup-form-promotions">
-                    <input className= "signup-form-checkbox" ref = {promoRef} type = "checkbox" id = "promotions" name = "promotions"></input>
-                    <label className = "signup-form-checkbox-label"for = "promotions">Receive emails from Cine City to get exclusive movie promotions and discounts.</label>
-                  </div>
-  
-          </div>
+          {profileform}
         </>
       )
     }
