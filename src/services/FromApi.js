@@ -130,6 +130,17 @@ export async function updatePasswordById(userId, password, email) {
     return output;
 }
 
+export async function sendPasswordEmail(email) {
+    const response = await fetch('http://localhost:8081/api/user/' + email + '/forgot?' + new URLSearchParams({
+        email: email,
+    }), {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+    });
+    let output = await response.json();
+    return output;
+}
+
 /* Given a user's id, add a new card. Returns "success" on success, "error" on error */
 export async function addCardById(userId, cardNumber, cardName, cardExpDate, cardCvv, street, city, state, zip, country) {
     const body = {
