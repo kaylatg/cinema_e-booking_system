@@ -100,17 +100,17 @@ export const Profile = ({stateChanger}) => {
          <div className = "profile-container">
            <img src = "https://images.nightcafe.studio//assets/profile.png?tr=w-1600,c-at_max"></img>
              <label className = "signup-form-email" ref = {emailRef} name="email">{response.email}</label>
-             <input className = "signup-form-username" ref = {userRef} name="username" placeholder={response.username}/>
-             <input className = "signup-form-password" ref = {passRef} name="password" placeholder={response.password} />
-             <input className = "signup-form-verify-password" ref = {verPassRef} name="verify-password" placeholder={response.password} />
-             <input className = "signup-form-phone" ref = {phoneRef} name="phone" placeholder={response.phone}/>
-             <input className = "signup-form-first-name" ref = {fnameRef} name="first-name" placeholder={response.firstName}/>
-             <input className = "signup-form-last-name" ref = {lnameRef} name="last-name" placeholder={response.lastName}/>
-             <input className = "signup-form-last-name" ref = {streetRef} name="street-address" placeholder={response.address.street}/>
-             <input className = "signup-form-last-name" ref = {cityRef} name="city" placeholder={response.address.city}/>
-             <input className = "signup-form-last-name" ref = {stateRef} name="state" placeholder={response.address.state}/>
-             <input className = "signup-form-last-name" ref = {zipRef} name="zip" placeholder={response.address.zipcode}/>
-             <input className = "signup-form-last-name" ref = {countryRef} name="country" placeholder={response.address.country}/>
+             <input className = "signup-form-username" ref = {userRef} name="username" placeholder = "username" defaultValue={response.username}/>
+             <input className = "signup-form-password" ref = {passRef} name="password" placeholder = "password"  defaultValue={response.password} />
+             <input className = "signup-form-verify-password" ref = {verPassRef} name="verify-password" placeholder = "verify password" defaultValue={response.password} />
+             <input className = "signup-form-phone" ref = {phoneRef} name="phone" placeholder = "phone number" defaultValue={response.phone}/>
+             <input className = "signup-form-first-name" ref = {fnameRef} name="first-name" placeholder = "first name" defaultValue={response.firstName}/>
+             <input className = "signup-form-last-name" ref = {lnameRef} name="last-name" placeholder = "last name"  defaultValue={response.lastName}/>
+             <input className = "signup-form-last-name" ref = {streetRef} name="street-address" placeholder = "street address" defaultValue={response.address.street}/>
+             <input className = "signup-form-last-name" ref = {cityRef} name="city" placeholder = "city" defaultValue={response.address.city}/>
+             <input className = "signup-form-last-name" ref = {stateRef} name="state" placeholder = "state"  defaultValue={response.address.state}/>
+             <input className = "signup-form-last-name" ref = {zipRef} name="zip" placeholder = "zip" defaultValue={response.address.zipcode}/>
+             <input className = "signup-form-last-name" ref = {countryRef} name="country" placeholder = "country" defaultValue={response.address.country}/>
              <button className = "update-profile-button" onClick = {event => handleSubmit(event)}>Update Profile</button>
          </div>
          <div className = "signup-form-promotions">
