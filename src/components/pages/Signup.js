@@ -29,13 +29,19 @@ export const Signup = ({stateChanger}) => {
       } else if (passRef.current.value !== verPassRef.current.value) {
           document.getElementById("errorMessage").innerHTML = "Password and Verify Password must be identical";
       } else {
+        let promo = promoRef.current.value;
+        if (promo === "on") {
+          promo = "true";
+        } else {
+          promo = "false";
+        }
         register(emailRef.current.value, passRef.current.value, userRef.current.value, phoneRef.current.value, 
-          fnameRef.current.value, lnameRef.current.value, promoRef.current.value,streetRef.current.value,
+          fnameRef.current.value, lnameRef.current.value, promo, streetRef.current.value,
           cityRef.current.value, stateRef.current.value, zipRef.current.value, countryRef.current.value).then(response =>{
-          if (response.success === true) {
+          if (Number.isInteger(response.id)) {
             navigate("/login", {replace: true});
           } else {
-            document.getElementById("errorMessage").innerHTML = "Invalid signup"
+            document.getElementById("errorMessage").innerHTML = response
           }
         })
       }

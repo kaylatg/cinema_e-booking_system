@@ -25,11 +25,12 @@ let routes;
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(0); // 0 = not logged in, 1 = logged in as user, 2 = logged in as admin
     verifySession(localStorage.getItem('token')).then(response => {
-      if (response.success === true) {
-        setIsLoggedIn(true);
+      if (response === true) {
+        setIsLoggedIn(localStorage.getItem("isLoggedIn"));
       } else {
         //stateChanger(0); //idk if this is needed but import it if it is
-        setIsLoggedIn(false);
+        setIsLoggedIn(0);
+        localStorage.setItem("isLoggedIn", 0);
       }
     })
     
