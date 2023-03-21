@@ -15,6 +15,7 @@ export const Cards = ({stateChanger}) => {
     const stateRef = React.createRef();
     const zipRef = React.createRef();
     const countryRef = React.createRef();
+    const navigate = useNavigate();
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -23,11 +24,11 @@ export const Cards = ({stateChanger}) => {
              zipRef.current.value.length < 1 || countryRef.current.value.length < 1) { 
               document.getElementById("errorMessage").innerHTML = "Please fill out all fields before submitting form";
           } else {
-            addCardById(localStorage.getItem("email"), nameRef.current.value, numRef.current.value, expRef.current.value, 
-              cvvRef.current.value, streetRef.current.value, cityRef.current.value,zipRef.current.value,
+            addCardById(localStorage.getItem("id"), numRef.current.value, nameRef.current.value, expRef.current.value, 
+              cvvRef.current.value, streetRef.current.value, cityRef.current.value, stateRef.current.value, zipRef.current.value,
               countryRef.current.value).then(response =>{
-              if (response.success === true) {
-                //nothing
+              if (response.message === "Success") {
+                navigate("/my-profile")
               } else {
                 document.getElementById("errorMessage").innerHTML = "Invalid card information"
               }
@@ -41,6 +42,7 @@ export const Cards = ({stateChanger}) => {
           <h1>Add a card</h1>
               <div className = "cards-container">
               <input className = "checkout-form-number" ref = {numRef} name="number" placeholder="card number" />
+                    <input className = "checkout-form-name" ref = {nameRef} name="name" placeholder="name on card" />
                     <input className = "checkout-form-date" ref = {expRef} name="expiration" placeholder="expiration date (e.g. 05/28)" />
                     <input className = "checkout-form-cvv" ref = {cvvRef} name="cvv" placeholder="cvv (e.g. 123)" />
                     <input className = "signup-form-last-name" ref = {streetRef} name="street-address" placeholder="street address"/>

@@ -69,33 +69,7 @@ export const Profile = ({stateChanger}) => {
     }
 
     getUser(localStorage.getItem("email")).then(response => {
-      /*
-        The following variables can be used to get each field from the user's current data
-        response.email (user's cannot change their email)
-        response.password
-        response.phone
-        response.username
-        response.firstName
-        response.lastName
-        response.recievePromotions
-        response.payments (array of payment methods), you will need to loop through to get each one
-          lets say we want their first payment method:
-          response.payments[0].address.street
-          response.payments[0].address.state
-          response.payments[0].address.zipcode
-          response.payments[0].address.country
-          response.payments[0].cardNumber
-          response.payments[0].name
-          response.payments[0].expiration
-          response.payments[0].cvv
-        response.address.street
-        response.address.state
-        response.address.zipcode
-        response.address.country
-      */
-     // Then you should fill in the fields with the user's current data
-     // Also add a checkbox to allow the user to update whether or not they want to recieve promotions
-
+      localStorage.setItem("id", response.id);
      setProfileForm(<div className="profile">
      <h1>Edit profile</h1>
          <div className = "profile-container">
@@ -115,10 +89,14 @@ export const Profile = ({stateChanger}) => {
              <button className = "update-profile-button" onClick = {event => handleSubmit(event)}>Update Profile</button>
          </div>
          <div className = "signup-form-promotions">
-               <input className= "signup-form-checkbox" ref = {promoRef} type = "checkbox" id = "promotions" name = "promotions"></input>
-               <label className = "signup-form-checkbox-label"for = "promotions">Receive emails from Cine City to get exclusive movie promotions and discounts.</label>
-               <p id = "errorMessage"></p>
-             </div>
+              <input className= "signup-form-checkbox" ref = {promoRef} type = "checkbox" id = "promotions" name = "promotions"></input>
+              <label className = "signup-form-checkbox-label"for = "promotions">Receive emails from Cine City to get exclusive movie promotions and discounts.</label>
+              <hr></hr>
+              <p id = "errorMessage"></p>
+        </div>
+        <hr></hr>
+        <a className = "login-form-signup" href="/cards">Modify Payment Card Information</a>
+
              
  
      </div>);

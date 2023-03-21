@@ -160,13 +160,13 @@ export async function addCardById(userId, cardNumber, cardName, cardExpDate, car
             street: street,
             city: city,
             state: state,
-            zipode: zip,
+            zipcode: zip,
             country: country,
         },
+        cvv: cardCvv,
         cardNumber: cardNumber,
-        cardName: cardName,
-        cardExpDate: cardExpDate,
-        cardCvv: cardCvv,
+        name: cardName,
+        expiration: cardExpDate,
     };
 
     const response = await fetch('http://localhost:8081/api/user/' + userId + '/payment/add',{
