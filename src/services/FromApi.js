@@ -37,7 +37,7 @@ export async function updateUser(email, password, username, phone, firstname, la
             street: street,
             city: city,
             state: state,
-            zip: zip,
+            zipcode: zip,
             country: country,
         },
     };
@@ -94,7 +94,7 @@ export async function register(email, password, username, phone, firstname, last
             street: street,
             city: city,
             state: state,
-            zip: zip,
+            zipcode: zip,
             country: country,
         },
     };
@@ -136,7 +136,7 @@ export async function addCardById(userId, cardNumber, cardName, cardExpDate, car
             street: street,
             city: city,
             state: state,
-            zip: zip,
+            zipode: zip,
             country: country,
         },
         cardNumber: cardNumber,
