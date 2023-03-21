@@ -60,7 +60,7 @@ export const Profile = ({stateChanger}) => {
       } else if (passRef.current.value !== verPassRef.current.value) {
           document.getElementById("errorMessage").innerHTML = "Password and Verify Password must be identical";
       } else {
-        updateUser(localStorage.getItem("email"), passRef.current.value, userRef.current.value, phoneRef.current.value, 
+        updateUser("ACTIVE", localStorage.getItem("email"), passRef.current.value, userRef.current.value, phoneRef.current.value, 
           fnameRef.current.value, lnameRef.current.value, promoRef.current.checked, streetRef.current.value,
           cityRef.current.value, stateRef.current.value, zipRef.current.value, countryRef.current.value).then(response =>{
             document.getElementById("errorMessage").innerHTML = "Profile updated successfully";

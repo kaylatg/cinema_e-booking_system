@@ -2,7 +2,7 @@ import React from 'react'
 import '../../App.css'
 import './Signup.css'
 import { useNavigate } from "react-router-dom";
-import {register} from '../../services/FromApi.js';
+import {register, sendConfirmationEmail} from '../../services/FromApi.js';
 
 export const Signup = ({stateChanger}) => {
   const navigate = useNavigate();
@@ -29,11 +29,15 @@ export const Signup = ({stateChanger}) => {
       } else if (passRef.current.value !== verPassRef.current.value) {
           document.getElementById("errorMessage").innerHTML = "Password and Verify Password must be identical";
       } else {
+        localStorage.setItem("email", emailRef.current.value);
         register(emailRef.current.value, passRef.current.value, userRef.current.value, phoneRef.current.value, 
           fnameRef.current.value, lnameRef.current.value, promoRef.current.checked, streetRef.current.value,
           cityRef.current.value, stateRef.current.value, zipRef.current.value, countryRef.current.value).then(response =>{
           if (Number.isInteger(response.id)) {
-            navigate("/login", {replace: true});
+            sendConfirmationEmail(emailRef.current.value).then(response => {
+              localStorage.setItem("code", response.message);
+            })
+            navigate("/confirmemail", {replace: true});
           } else {
             document.getElementById("errorMessage").innerHTML = response
           }

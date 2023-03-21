@@ -21,6 +21,7 @@ import {AdminPromos} from './components/pages/AdminPromos'
 import {verifySession} from './services/FromApi.js'
 import {ForgotPasswordInitial} from './components/pages/ForgotPasswordInitial.js'
 import {ForgotPassword} from './components/pages/ForgotPassword.js'
+import ConfirmEmail from './components/pages/ConfirmEmail.js'
 
 let routes;
 
@@ -78,6 +79,7 @@ function App() {
             <Route path='/resetpassword' element={<ForgotPassword />} />
             <Route path='/login' element={<Login stateChanger = {setIsLoggedIn} />} />
             <Route path='/signup' element={<Signup />} />
+            <Route path='/confirmemail' element={<ConfirmEmail />} />
             <Route path='/showtimes' element={<Showtimes />} />
             <Route path='/seats' element={<Seats />} />
             <Route path='/checkout' element={<Checkout />} />

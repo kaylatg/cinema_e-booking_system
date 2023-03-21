@@ -21,10 +21,10 @@ export async function getUser(username) {
 }
 
 /* Given a user's information, update the user's info in the database */
-export async function updateUser(email, password, username, phone, firstname, lastname, promotions, street, city, state, zip, country) {
+export async function updateUser(status, email, password, username, phone, firstname, lastname, promotions, street, city, state, zip, country) {
     const body = {
         type: 'CUSTOMER',
-        status: 'PENDING',
+        status: status,
         email: email,
         password: password,
         phone: phone,
@@ -132,6 +132,17 @@ export async function updatePasswordById(userId, password, email) {
 
 export async function sendPasswordEmail(email) {
     const response = await fetch('http://localhost:8081/api/user/' + email + '/forgot?' + new URLSearchParams({
+        email: email,
+    }), {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+    });
+    let output = await response.json();
+    return output;
+}
+
+export async function sendConfirmationEmail(email) {
+    const response = await fetch('http://localhost:8081/api/confirmemail?' + new URLSearchParams({
         email: email,
     }), {
         method: 'POST',
