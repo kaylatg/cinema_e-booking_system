@@ -21,7 +21,7 @@ export const ForgotPassword = ({stateChanger}) => {
         } else {
             getUser(emailRef.current.value).then(response => {
               if (response.message !== "User not found") {
-                  updatePasswordById(response.id, passRef.current.value).then(response => {
+                  updatePasswordById(response.id, passRef.current.value, emailRef.current.value).then(response => {
                     document.getElementById("errorMessage").innerHTML = response.message;
                     console.log(response);
                 })

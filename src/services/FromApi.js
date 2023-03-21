@@ -113,13 +113,15 @@ export async function register(email, password, username, phone, firstname, last
 }
 
 /* Given a user's id, update their password. */
-export async function updatePasswordById(userId, password) {
+export async function updatePasswordById(userId, password, email) {
     const body = {
         userId: userId,
         password: password,
     };
 
-    const response = await fetch('http://localhost:8081/api/user/' + userId + '/credentials', {
+    const response = await fetch('http://localhost:8081/api/user/' + userId + '/credentials?' + new URLSearchParams({
+        email: email,
+    }), {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(body),
