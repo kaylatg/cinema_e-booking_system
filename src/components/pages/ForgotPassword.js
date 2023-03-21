@@ -1,6 +1,7 @@
 import React from 'react'
 import '../../App.css'
 import './ForgotPassword.css'
+import './Signup.css'
 import {getUser} from '../../services/FromApi.js';
 import {updatePasswordById} from '../../services/FromApi.js';
 
@@ -28,6 +29,7 @@ export const ForgotPassword = ({stateChanger}) => {
                     <input className = "signup-form-password" ref = {passRef} name="password" placeholder="new password" />
                     <input className = "signup-form-verify-password" ref = {verPassRef} name="verify-password" placeholder="verify password" />
                     <button className = "signup-form-button" onClick = {event => handleSubmit(event)}>Submit</button>
+                    <p id = "errorMessage"></p>
               </div>
   
           </div>
