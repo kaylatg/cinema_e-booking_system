@@ -1,7 +1,10 @@
 h1 {
     text-align: left;
-    padding-left: 2%;
     font-weight: 400;
+}
+
+.home h1 {
+    padding-left: 2%;
 }
 
 .logoHome {

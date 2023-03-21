@@ -6,6 +6,8 @@ export const Navbar2 = ({stateChanger}) => {
     const handleLogout = () => {
         stateChanger(0);
         localStorage.setItem("isLoggedIn", 0);
+        localStorage.setItem('token', "");
+        window.location.reload();
     }
 
   return (

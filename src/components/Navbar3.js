@@ -8,7 +8,9 @@ export const Navbar3 = ({stateChanger}) => {
     const handleLogout = () => {
         stateChanger(0);
         localStorage.setItem("isLoggedIn", 0);
-        navigate("/");
+        localStorage.setItem('token', "");
+        window.location.reload();
+        //navigate("/");
     }
 
   return (

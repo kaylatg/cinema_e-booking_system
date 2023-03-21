@@ -18,13 +18,21 @@ import {AdminHome} from './components/pages/AdminHome'
 import {AdminMovies} from './components/pages/AdminMovies'
 import {AdminAdjustMovie} from './components/pages/AdminAdjustMovie'
 import {AdminPromos} from './components/pages/AdminPromos'
+import {verifySession} from './services/FromApi.js'
 
 let routes;
 
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(0); // 0 = not logged in, 1 = logged in as user, 2 = logged in as admin
-
-
+    verifySession(localStorage.getItem('token')).then(response => {
+      if (response.success === true) {
+        setIsLoggedIn(true);
+      } else {
+        //stateChanger(0); //idk if this is needed but import it if it is
+        setIsLoggedIn(false);
+      }
+    })
+    
     if (localStorage.getItem("isLoggedIn") === "2") {
       routes = (
         <Router>
