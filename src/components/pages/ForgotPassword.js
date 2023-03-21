@@ -19,7 +19,7 @@ export const ForgotPassword = ({stateChanger}) => {
         } else if (passRef.current.value !== verPassRef.current.value) {
             document.getElementById("errorMessage").innerHTML = "Password and Verify Password must be identical";
         } else {
-            updatePasswordById(getUser(),passRef);
+            updatePasswordById(localStorage.getItem("email"),passRef);
         }
       }
 

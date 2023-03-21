@@ -77,7 +77,7 @@ export const Profile = ({stateChanger}) => {
           <h1>Edit profile</h1>
               <div className = "profile-container">
                 <img src = "https://images.nightcafe.studio//assets/profile.png?tr=w-1600,c-at_max"></img>
-                <label className = "signup-form-email" ref = {emailRef} name="email" placeholder="email" />
+                  <label className = "signup-form-email" ref = {emailRef} name="email" placeholder="email" />
                   <input className = "signup-form-username" ref = {userRef} name="username" placeholder="username" />
                   <input className = "signup-form-password" ref = {passRef} name="password" placeholder="password" />
                   <input className = "signup-form-verify-password" ref = {verPassRef} name="verify-password" placeholder="verify password" />
