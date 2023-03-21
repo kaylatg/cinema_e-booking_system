@@ -104,8 +104,12 @@ export async function register(email, password, username, phone, firstname, last
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(body),
     });
-    let output = await response.json();
-    return output;
+    try {
+        let output = await response.json();
+        return output;
+    } catch (error) {
+        return "Account already exists or invalid information was entered"
+    }
 }
 
 /* Given a user's id, update their password. */

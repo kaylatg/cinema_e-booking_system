@@ -12,14 +12,19 @@ export const Login = ({stateChanger}) => {
     const handleSubmit = event => {
         event.preventDefault();
         login(emailRef.current.value, passRef.current.value).then(response => {
-          if (response.success === true) {
-            stateChanger(1);
+          if (response.success === "true") {
+            if (response.user.type === "CUSTOMER") {
+              stateChanger(1);
+              localStorage.setItem("isLoggedIn", 1);
+            } else {
+              localStorage.setItem("isLoggedIn", 2);
+              stateChanger(2);
+            }
             navigate("/", {replace: true}); // true or statechanger num?
-            localStorage.setItem("isLoggedIn", 1);
-            localStorage.setItem('token', response.token);
-            //idk if I'm supposed to do localStorage.setItem(signupinfoforthisuser) here somehow
+            localStorage.setItem('token', response.key);
+            localStorage.setItem('email', response.user.email);
           } else {
-            document.getElementById("errorMessage").innerHTML = response.error;
+            document.getElementById("errorMessage").innerHTML = "Invalid email or password";
           }
         });
     }
