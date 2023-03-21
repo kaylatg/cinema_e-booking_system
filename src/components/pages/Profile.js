@@ -1,6 +1,7 @@
 import React from 'react'
 import '../../App.css'
 import './Profile.css'
+import './Signup.css'
 import { useNavigate } from "react-router-dom";
 import {updateUser} from '../../services/FromApi.js';
 
@@ -19,6 +20,7 @@ export const Profile = ({stateChanger}) => {
   const stateRef = React.createRef();
   const zipRef = React.createRef();
   const countryRef = React.createRef();
+  const promoRef = React.createRef();
 
 
 
@@ -45,7 +47,7 @@ export const Profile = ({stateChanger}) => {
           <h1>Edit profile</h1>
               <div className = "profile-container">
                 <img src = "https://images.nightcafe.studio//assets/profile.png?tr=w-1600,c-at_max"></img>
-                <input className = "signup-form-email" ref = {emailRef} name="email" placeholder="email" />
+                  <label className = "signup-form-email" ref = {emailRef} name="email" placeholder="email" />
                   <input className = "signup-form-username" ref = {userRef} name="username" placeholder="username" />
                   <input className = "signup-form-password" ref = {passRef} name="password" placeholder="password" />
                   <input className = "signup-form-verify-password" ref = {verPassRef} name="verify-password" placeholder="verify password" />
@@ -59,6 +61,10 @@ export const Profile = ({stateChanger}) => {
                   <input className = "signup-form-last-name" ref = {countryRef} name="country" placeholder="country"/>
                   <button className = "update-profile-button" onClick = {event => handleSubmit(event)}>Update Profile</button>
               </div>
+              <div className = "signup-form-promotions">
+                    <input className= "signup-form-checkbox" ref = {promoRef} type = "checkbox" id = "promotions" name = "promotions"></input>
+                    <label className = "signup-form-checkbox-label"for = "promotions">Receive emails from Cine City to get exclusive movie promotions and discounts.</label>
+                  </div>
   
           </div>
         </>
