@@ -3,7 +3,7 @@ import '../../App.css'
 import './Checkout.css'
 import './Tickets.css'
 import { useNavigate } from "react-router-dom";
-import {addCardById} from '../../services.FromApi.js'
+import {addCardById} from '../../services/FromApi.js'
 
 
 export const Checkout = () => {
