@@ -19,6 +19,7 @@ import {AdminMovies} from './components/pages/AdminMovies'
 import {AdminAdjustMovie} from './components/pages/AdminAdjustMovie'
 import {AdminPromos} from './components/pages/AdminPromos'
 import {verifySession} from './services/FromApi.js'
+import {ForgotPasswordInitial} from './components/pages/ForgotPasswordInitial.js'
 import {ForgotPassword} from './components/pages/ForgotPassword.js'
 
 let routes;
@@ -73,7 +74,8 @@ function App() {
         <Routes>
             <Route exact path='/' element={<Home />} />
             <Route path='/about' element={<About />} />
-            <Route path='/forgotpassword' element={<ForgotPassword />} />
+            <Route path='/forgotpassword' element={<ForgotPasswordInitial />} />
+            <Route path='/resetpassword' element={<ForgotPassword />} />
             <Route path='/login' element={<Login stateChanger = {setIsLoggedIn} />} />
             <Route path='/signup' element={<Signup />} />
             <Route path='/showtimes' element={<Showtimes />} />

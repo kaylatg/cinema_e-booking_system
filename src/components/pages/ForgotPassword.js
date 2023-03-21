@@ -9,19 +9,18 @@ export const ForgotPassword = ({stateChanger}) => {
 
     const passRef = React.createRef();
     const verPassRef = React.createRef();
-    const emailRef = React.createRef();
 
 
     const handleSubmit = event => {
         event.preventDefault();
-        if (emailRef.current.value.length < 1 || passRef.current.value.length < 1 || verPassRef.current.value.length < 1) {
+        if (passRef.current.value.length < 1 || verPassRef.current.value.length < 1) {
             document.getElementById("errorMessage").innerHTML = "Please fill out all fields before submitting form";
         } else if (passRef.current.value !== verPassRef.current.value) {
             document.getElementById("errorMessage").innerHTML = "Password and Verify Password must be identical";
         } else {
-            getUser(emailRef.current.value).then(response => {
+            getUser(localStorage.getItem("email")).then(response => {
               if (response.message !== "User not found") {
-                  updatePasswordById(response.id, passRef.current.value, emailRef.current.value).then(response => {
+                  updatePasswordById(response.id, passRef.current.value, localStorage.getItem("email")).then(response => {
                     document.getElementById("errorMessage").innerHTML = response.message;
                     console.log(response);
                 })
@@ -38,7 +37,6 @@ export const ForgotPassword = ({stateChanger}) => {
           <div className="forgotPass">
           <h1>Forgot Password</h1>
               <div className = "forgotpass-container">
-                    <input className = "signup-form-email" ref = {emailRef} name="email" placeholder="email" />
                     <input className = "signup-form-password" ref = {passRef} name="password" placeholder="new password" />
                     <input className = "signup-form-verify-password" ref = {verPassRef} name="verify-password" placeholder="verify password" />
                     <button className = "signup-form-button" onClick = {event => handleSubmit(event)}>Submit</button>
