@@ -18,10 +18,12 @@ import {AdminHome} from './components/pages/AdminHome'
 import {AdminMovies} from './components/pages/AdminMovies'
 import {AdminAdjustMovie} from './components/pages/AdminAdjustMovie'
 import {AdminPromos} from './components/pages/AdminPromos'
+import {Cards} from './components/pages/Cards'
 import {verifySession} from './services/FromApi.js'
 import {ForgotPasswordInitial} from './components/pages/ForgotPasswordInitial.js'
 import {ForgotPassword} from './components/pages/ForgotPassword.js'
 import ConfirmEmail from './components/pages/ConfirmEmail.js'
+
 
 let routes;
 
@@ -63,6 +65,7 @@ function App() {
             <Route path='/my-tickets' element={<Tickets />} />
             <Route path='/checkout' element={<Checkout />} />
             <Route path='/confirmation' element={<Confirmation />} />
+            <Route path='/cards' element={<Cards />} />
             <Route path='/my-profile' element={<Profile />} />
             <Route path='/' element={<handleLogout stateChanger = {setIsLoggedIn} />} />
         </Routes>

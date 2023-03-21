@@ -1,0 +1,18 @@
+.cards-container {
+    text-align: center;
+    padding-top: 20px;
+    display: flex;
+    flex-flow: column;
+    margin: auto;
+    color: #D9D9D9;
+    justify-content: center;
+    width: 500px;
+}
+
+.cards h1 {
+    text-align: center;
+}
+
+.cards {
+    margin-top: 100px;
+}
