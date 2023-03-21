@@ -53,16 +53,17 @@ export const Profile = ({stateChanger}) => {
 
     const handleSubmit = event => {
       event.preventDefault();
-      if (emailRef.current.value.length < 1 || passRef.current.value.length < 1 || userRef.current.value.length < 1 || phoneRef.current.value.length < 1 || 
+      if (passRef.current.value.length < 1 || userRef.current.value.length < 1 || phoneRef.current.value.length < 1 || 
         fnameRef.current.value.length < 1 || lnameRef.current.value.length < 1 || streetRef.current.value.length < 1 ||
         cityRef.current.value.length < 1 || stateRef.current.value.length < 1 || zipRef.current.value.length < 1 || countryRef.current.value.length < 1) { 
           document.getElementById("errorMessage").innerHTML = "Please fill out all fields before submitting form";
       } else if (passRef.current.value !== verPassRef.current.value) {
           document.getElementById("errorMessage").innerHTML = "Password and Verify Password must be identical";
       } else {
-        updateUser(emailRef.current.value, passRef.current.value, userRef.current.value, phoneRef.current.value, 
-          fnameRef.current.value, lnameRef.current.value, streetRef.current.value,
+        updateUser(localStorage.getItem("email"), passRef.current.value, userRef.current.value, phoneRef.current.value, 
+          fnameRef.current.value, lnameRef.current.value, promoRef.current.checked, streetRef.current.value,
           cityRef.current.value, stateRef.current.value, zipRef.current.value, countryRef.current.value).then(response =>{
+            document.getElementById("errorMessage").innerHTML = "Profile updated successfully";
         })
       }
     }
