@@ -95,7 +95,7 @@ export const Profile = ({stateChanger}) => {
               <p id = "errorMessage"></p>
         </div>
         <hr></hr>
-        <a className = "login-form-signup" href="/cards">Modify Payment Card Information</a>
+        <a className = "login-form-signup" href="/cards">Add Payment Card</a>
 
              
  

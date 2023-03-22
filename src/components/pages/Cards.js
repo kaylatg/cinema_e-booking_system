@@ -10,7 +10,7 @@ export const Cards = ({stateChanger}) => {
     const numRef = React.createRef();
     const expRef = React.createRef();
     const cvvRef = React.createRef();
-    const streetRef = React.createRef(); // the rest of these fields should be pulled from getUser as well (delete all of these and user from form below once switched to api pull via getUser)
+    const streetRef = React.createRef();
     const cityRef = React.createRef();
     const stateRef = React.createRef();
     const zipRef = React.createRef();
