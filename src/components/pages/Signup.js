@@ -35,7 +35,7 @@ export const Signup = ({stateChanger}) => {
           cityRef.current.value, stateRef.current.value, zipRef.current.value, countryRef.current.value).then(response =>{
           if (Number.isInteger(response.id)) {
             sendConfirmationEmail(emailRef.current.value).then(response => {
-              localStorage.setItem("code", response.message);
+              localStorage.setItem("code", response);
             })
             navigate("/confirmemail", {replace: true});
           } else {
