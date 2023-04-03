@@ -16,6 +16,7 @@ import {Confirmation} from './components/pages/Confirmation'
 import {Profile} from './components/pages/Profile'
 import {AdminHome} from './components/pages/AdminHome'
 import {AdminMovies} from './components/pages/AdminMovies'
+import {AdminAddMovie} from './components/pages/AdminAddMovie'
 import {AdminAdjustMovie} from './components/pages/AdminAdjustMovie'
 import {AdminPromos} from './components/pages/AdminPromos'
 import {Cards} from './components/pages/Cards'
@@ -49,6 +50,7 @@ function App() {
             <Route path='/adminmovies' element={<AdminMovies />} />
             <Route path='/adminadjustmovie' element={<AdminAdjustMovie />} />
             <Route path='/adminpromos' element={<AdminPromos />} />
+            <Route path='/adminaddmovie' element={<AdminAddMovie />} />
             <Route path='/' element={<handleLogout stateChanger = {setIsLoggedIn} />} />
         </Routes>
         </Router>
