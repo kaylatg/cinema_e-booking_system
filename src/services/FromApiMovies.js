@@ -31,6 +31,24 @@ export async function getMovie(movieId) {
     return output;
 }
 
+export async function getMoviesPlaying() {
+    const response = await fetch('http://localhost:8081/api/movies/now-playing', {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'},
+    });
+    let output = await response.json();
+    return output;
+}
+
+export async function getMoviesUpcoming() {
+    const response = await fetch('http://localhost:8081/api/movies/upcoming', {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'},
+    });
+    let output = await response.json();
+    return output;
+}
+
 /* Schedules a show for a movie in a showroom at a specific time 
    Time format: YYYY-MM-DDTHH:MM:SS. Returns the show */
 export async function scheduleShow(movieId, showroomId, starttime, endtime) {
