@@ -49,6 +49,13 @@ export const Profile = ({stateChanger}) => {
      </div>)
   );
 
+    const adminlogin = event => {
+      event.preventDefault();
+      localStorage.setItem("isLoggedIn", "2");
+      stateChanger(2);
+      navigate("/", {replace: true});
+    }
+
 
 
     const handleSubmit = event => {
@@ -96,6 +103,8 @@ export const Profile = ({stateChanger}) => {
         </div>
         <hr></hr>
         <a className = "login-form-signup" href="/cards">Add Payment Card</a>
+        <hr></hr>
+        <button className = "adminview" onClick={event => adminlogin(event)}>Switch to Admin View</button>
 
              
  
