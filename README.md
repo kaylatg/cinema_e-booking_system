@@ -36,6 +36,10 @@ All pages for this deliverable (AdminHome, AdminAddMovie, AdminAdjustMovie, Admi
         - Additional frontend changes may need to be made in accordance with the Deliverable Requirements, make sure they are all hit
 
 FRONTEND CHANGES THAT NEED TO BE MADE (not everything)
+    - From the previous deliverable:
+        - Anywhere a password is entered should be hidden (with like the little black dots instead of just plain text)
+            - Mostly for Login, Signup and Edit Profile
+
     - AdminPromos needs to be updated to include all relevant fields.
         - The forms should use the refs I have made on that page, once the form is updated and the refs are on the form that should work fine\
 
