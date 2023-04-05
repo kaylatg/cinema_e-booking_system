@@ -2,7 +2,7 @@ There are a few important things to note to complete Deliverable 7 for Frontend.
 
 PLEASE READ THE WHOLE README, THERE IS IMPORTANT INFORMATION HERE
 
-IMPORTANT: Make sure the frontend and backend repos are UP TO DATE!!! (your backend repo should be on master)
+IMPORTANT: Make sure the frontend and backend repos are UP TO DATE!!! (your backend repo should be on main)
 
 First, make sure you have the backend setup on your local machine
     - The MySQL Database has changed, it must be updated.
