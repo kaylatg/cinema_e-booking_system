@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+There are a few important things to note to complete Deliverable 7 for Frontend.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+PLEASE READ THE WHOLE README, THERE IS IMPORTANT INFORMATION HERE
 
-## Available Scripts
+IMPORTANT: Make sure the frontend and backend repos are UP TO DATE!!! (your backend repo should be on master)
 
-In the project directory, you can run:
+First, make sure you have the backend setup on your local machine
+    - The MySQL Database has changed, it must be updated.
+    In order to update the database:
+        - Open your server instance on MySQL workbench
+        - On the left side of the window navigate to "schemas"
+            - Right click 'csci4050'
+            - Click 'drop schema'
+            - Click 'drop now'
+        - Go to the top and click server, the data import
+            - Select import from self contained file
+            - Select the new csci4050.sql file from the backend repository
+            - Click start import
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Next, run the backend server. If it starts with no errors you should be good
+    - If there are errors, check the application.properties file and make sure the password is what your MySQL password is
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Run the frontend React website
+    - Note, since you reset the database, you will have to make a new account
+    - You can access an Admin view by logging in to your account and going to your profile page. There you can click "Switch to Admin View"
+    - IMPORTANT: In order to do basically anything, a configuration for Theatres and Showrooms must be done for the backend.
+        - Any time you reset the database, this configuration is reset. You must set it up again by:
+            - Going to the Admin View
+            - Going to the Admin Home page
+            - Clicking on "Setup Theatre Configuration"
+        - If you see "theatre configuration successful" it worked and now the site should work properly
 
-### `npm test`
+All pages for this deliverable (AdminHome, AdminAddMovie, AdminAdjustMovie, AdminMovies, AdminPromos, Home, Showtimes) should be functional, though the frontend UI needs work
+    - On each page there will be comments detailing how to access certain data members (if necessary) as well as frontend changes that need to be made
+        - Additional frontend changes may need to be made in accordance with the Deliverable Requirements, make sure they are all hit
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+FRONTEND CHANGES THAT NEED TO BE MADE (not everything)
+    - AdminPromos needs to be updated to include all relevant fields.
+        - The forms should use the refs I have made on that page, once the form is updated and the refs are on the form that should work fine\
 
-### `npm run build`
+    - Showtimes.js needs to be updated to show all relevant movie information
+        - I have left detailed comments on that page, read those
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    - An error message needs to be displayed on AdminAdjustMovie if scheduling a showtime failed (likely because a show at the existing time already exists)
+        - Check the comments for how to access the error message so you can display it on the UI
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    - Form validation (making sure all fields were input, etc), needs to be done for various forms for admin stuff
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    - Overall fluidity needs improvment (navigating to different pages on successful movie creation, etc)
+        - On each page I have left comments about where in the code things should be done on successful inputs (movie creation, showtime scheduling, etc)
+        - You can use this to write frontend code on sucess or failure for stuff
 
-### `npm run eject`
+ANY QUESTIONS, PLEASE CONTACT GEORGE. I will respond quickly if you guys run into any hiccups. The deliverable is mostly done at this point just needs frontend cleanup basically
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+THANKS!!!!!!!!!

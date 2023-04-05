@@ -15,6 +15,7 @@ export const AdminAddMovie = () => {
     const castRef = React.createRef();
     const directorRef = React.createRef();
     const synopsisRef = React.createRef();
+    const statusRef = React.createRef();
 
     const handleSubmit = event => { //After clicking the add movie button
         event.preventDefault();
@@ -26,7 +27,9 @@ export const AdminAddMovie = () => {
         const cast = castRef.current.value;
         const director = directorRef.current.value;
         const synopsis = synopsisRef.current.value;
-        createMovie(title, trailer, synopsis, rating, poster, cast, director).then(response => {
+        const status = statusRef.current.value;
+        console.log(status);
+        createMovie(title, trailer, synopsis, rating, poster, cast, director, category, status).then(response => {
           if (Number.isInteger(response.id)) {
             console.log("Movie added"); //Movie creation successful
           } else {
@@ -53,9 +56,9 @@ export const AdminAddMovie = () => {
                 <input className = "movie-cast" name="cast" ref={castRef} placeholder="cast" />
                 <input className = "movie-director" name="director" ref={directorRef} placeholder="director" />
                 <input className = "movie-synopsis" name="synopsis" ref={synopsisRef} placeholder="synopsis" />
-                <select className = "change-section">
-                    <option>Coming Soon</option>
-                    <option>Now Showing</option>
+                <select className = "change-section" ref={statusRef}>
+                    <option>UPCOMING</option>
+                    <option>NOW_PLAYING</option>
                 </select>
                 <button className = "submitbutton" onClick={event => handleSubmit(event)}>Add movie</button>
             </div>

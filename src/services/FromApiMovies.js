@@ -1,7 +1,7 @@
 /* All API calls needed for Deliverable 7 */
 
 /* Creates a Movie in the database, returns the created Movie */
-export async function createMovie(title, trailer, description, rating, poster, actors, director) {
+export async function createMovie(title, trailer, description, rating, poster, actors, director, category, status) {
     const body = {
         title: title,
         trailer: trailer,
@@ -9,7 +9,9 @@ export async function createMovie(title, trailer, description, rating, poster, a
         rating: rating,
         poster: poster,
         actors: actors,
-        director: director
+        director: director,
+        category: category,
+        status: status,
     }
 
     const response = await fetch('http://localhost:8081/api/movie', {
@@ -52,22 +54,41 @@ export async function getMoviesUpcoming() {
 /* Schedules a show for a movie in a showroom at a specific time 
    Time format: YYYY-MM-DDTHH:MM:SS. Returns the show */
 export async function scheduleShow(movieId, showroomId, starttime, endtime) {
-    const response = await fetch('http://localhost:8081/api/show', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-            movie: {
-                id: movieId
-            },
-            showStart: starttime,
-            showEnd: endtime,
-            showRoom: {
-                id: showroomId
-            }
-        }),
-    });
-    let output = await response.json();
-    return output;
+    try {
+        const response = await fetch('http://localhost:8081/api/show', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                movie: {
+                    id: movieId
+                },
+                showStart: starttime,
+                showEnd: endtime,
+                showRoom: {
+                    id: showroomId
+                }
+            }),
+        });
+        let output = await response.json();
+        return output;
+    } catch (error) {
+        const response = await fetch('http://localhost:8081/api/show', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                movie: {
+                    id: movieId
+                },
+                showStart: starttime,
+                showEnd: endtime,
+                showRoom: {
+                    id: showroomId
+                }
+            }),
+        });
+        let output = await response.text();
+        return output;
+    }
 }
 
 /* Returns the Show based on the supplied show id */
@@ -147,7 +168,7 @@ export async function setupShowrooms(theatreId) {
         }),
     });
 
-    let output2 = await response.json();
+    let output2 = await response2.json();
 
     const response3 = await fetch('http://localhost:8081/api/theatre/' + theatreId + '/show-room', {
         method: 'POST',
@@ -157,7 +178,7 @@ export async function setupShowrooms(theatreId) {
             name: "Showroom 3",
         }),
     });
-    let output3 = await response.json();
+    let output3 = await response3.json();
     
     return getTheatre(theatreId);
 }
