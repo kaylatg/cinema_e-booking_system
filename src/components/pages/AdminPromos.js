@@ -13,7 +13,7 @@ export const AdminPromos = () => {
   
     const handleSubmit = (event) => {
         event.preventDefault()
-        createPromotion(discountRef.current.value, '2023-04-03', dateRef.current.value, codeRef.current.value).then((data) => {
+        createPromotion(discountRef.current.value, '2023-04-03', dateRef.current.value + ":00", codeRef.current.value).then((data) => {
             if (Number.isInteger(data.id)) {
               console.log("success") // Promotion was successfully added
             } else {
@@ -30,7 +30,9 @@ export const AdminPromos = () => {
             <hr></hr>
             <div className = "add-promos">
                 <h2>Add Promotions</h2>
-                <input type="text"></input>
+                <input name="code" ref={codeRef} placeholder="discount code" />
+                <input name="discount" ref={discountRef} placeholder="discount percentage" />
+                <input type="datetime-local" name="movie-datetime" defaultValue="2023-04-06T19:30" min="2023-01-01T00:00" max="2023-12-31T00:00" ref = {dateRef}></input>
                 <button onClick={event => handleSubmit(event)}>add</button>
             </div>
         </div>
