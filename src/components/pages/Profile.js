@@ -35,7 +35,6 @@ export const Profile = ({stateChanger}) => {
              <input className = "signup-form-first-name" ref = {fnameRef} name="first-name" placeholder="first name"/>
              <input className = "signup-form-last-name" ref = {lnameRef} name="last-name" placeholder="last name"/>
              <input className = "signup-form-last-name" ref = {streetRef} name="street-address" placeholder="street address"/>
-             <input className = "signup-form-last-name" ref = {cityRef} name="city" placeholder="city"/>
              <input className = "signup-form-last-name" ref = {stateRef} name="state" placeholder="state"/>
              <input className = "signup-form-last-name" ref = {zipRef} name="zip" placeholder="zip"/>
              <input className = "signup-form-last-name" ref = {countryRef} name="country" placeholder="country"/>
@@ -89,7 +88,6 @@ export const Profile = ({stateChanger}) => {
              <input className = "signup-form-first-name" ref = {fnameRef} name="first-name" placeholder = "first name" defaultValue={response.firstName}/>
              <input className = "signup-form-last-name" ref = {lnameRef} name="last-name" placeholder = "last name"  defaultValue={response.lastName}/>
              <input className = "signup-form-last-name" ref = {streetRef} name="street-address" placeholder = "street address" defaultValue={response.address.street}/>
-             <input className = "signup-form-last-name" ref = {cityRef} name="city" placeholder = "city" defaultValue={response.address.city}/>
              <input className = "signup-form-last-name" ref = {stateRef} name="state" placeholder = "state"  defaultValue={response.address.state}/>
              <input className = "signup-form-last-name" ref = {zipRef} name="zip" placeholder = "zip" defaultValue={response.address.zipcode}/>
              <input className = "signup-form-last-name" ref = {countryRef} name="country" placeholder = "country" defaultValue={response.address.country}/>
