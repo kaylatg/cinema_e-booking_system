@@ -63,6 +63,14 @@ export const Showtimes = () => {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
           ></iframe>
+          <h1>{movie.title}</h1>
+          <p>{movie.description}</p>
+          <hr />
+          <p>rating: {movie.rating}</p>
+          <p>poster: {movie.poster}</p>
+          <p>cast: {movie.actors}</p>
+          <p>director: {movie.director}</p>
+          <p>category: {movie.category}</p>
           <h1>SHOWTIMES</h1>
           <div className="showtime-container">
             {Object.entries(showtimesByDate).map(([date, showtimes]) => (
