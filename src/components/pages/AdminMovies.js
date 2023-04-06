@@ -46,7 +46,7 @@ export const AdminMovies = () => {
                     </Link>
                 ))}
             </div>
-            <Link to="/adminaddmovie">Create a new Movie</Link>
+            <Link id="createmovie" to="/adminaddmovie">Create a new Movie</Link>
         </div>
     </>
     )
