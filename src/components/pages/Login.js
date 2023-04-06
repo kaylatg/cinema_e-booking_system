@@ -12,8 +12,8 @@ export const Login = ({stateChanger}) => {
     const handleSubmit = event => {
         event.preventDefault();
         login(emailRef.current.value, passRef.current.value).then(response => {
-          if (response.user.status === "ACTIVE") {
-            if (response.success === "true") {
+          try {
+            if (response.user.status === "ACTIVE") {
               if (response.user.type === "CUSTOMER") {
                 stateChanger(1);
                 localStorage.setItem("isLoggedIn", 1);
@@ -25,10 +25,14 @@ export const Login = ({stateChanger}) => {
               localStorage.setItem('token', response.key);
               localStorage.setItem('email', response.user.email);
             } else {
-              document.getElementById("errorMessage").innerHTML = "Invalid email or password";
+              document.getElementById("errorMessage").innerHTML = "Your account is not active";
             }
-          } else {
-            document.getElementById("errorMessage").innerHTML = "Your account is not active";
+          } catch (error) {
+            if (response.success === "false") {
+              document.getElementById("errorMessage").innerHTML = "invalid password";
+            } else {
+              document.getElementById("errorMessage").innerHTML = response;
+            }
           }
         });
     }
