@@ -35,10 +35,9 @@ export const AdminAddMovie = () => {
           const status = statusRef.current.value;
           createMovie(title, trailer, synopsis, rating, poster, cast, director, category, status).then(response => {
             if (Number.isInteger(response.id)) {
-              console.log("Movie added"); //Movie creation successful
-            } else {
-              console.log("Failed to add movie"); //Movie creation failed
               document.getElementById("errorMessage").innerHTML = "Movie added";
+            } else {
+              document.getElementById("errorMessage").innerHTML = "Movie could not be added, this movie may already exist";
             }
           });
         }
