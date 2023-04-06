@@ -1,20 +1,6 @@
-.adminaddmovie {
+.adminaddmovie h1{
+    margin-top: 100px;
     text-align: center;
-    background: linear-gradient(180deg, #B53030 0%, #111011 48.16%, #111011 100%);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 400px;
-    margin-top: 0;
-}
-
-.addmoviebutton {
-width: 245px;
-height: 324px;
-left: 518px;
-top: 195px;
-border-radius: 0;
-background: rgba(217, 217, 217, 0.33);
 }
 
 .addmovieform {

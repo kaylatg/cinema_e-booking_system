@@ -19,20 +19,20 @@ export const AdminAddMovie = () => {
 
     const handleSubmit = event => { //After clicking the add movie button
         event.preventDefault();
-        const title = titleRef.current.value;
-        const rating = ratingRef.current.value;
-        const poster = posterRef.current.value;
-        const trailer = trailerRef.current.value;
-        const category = categoryRef.current.value;
-        const cast = castRef.current.value;
-        const director = directorRef.current.value;
-        const synopsis = synopsisRef.current.value;
-        const status = statusRef.current.value;
         if (titleRef.current.value.length < 1 || ratingRef.current.value.length < 1 || posterRef.current.value.length < 1 ||
           trailerRef.current.value.length < 1 || categoryRef.current.value.length < 1 || castRef.current.value < 1 ||
-          directorRef.current.value.length || synopsis.current.value.length < 1) {
+          directorRef.current.value.length < 1 || synopsisRef.current.value.length < 1) {
             document.getElementById("errorMessage").innerHTML = "Please fill out all fields before submitting form";
         } else {
+          const title = titleRef.current.value;
+          const rating = ratingRef.current.value;
+          const poster = posterRef.current.value;
+          const trailer = trailerRef.current.value;
+          const category = categoryRef.current.value;
+          const cast = castRef.current.value;
+          const director = directorRef.current.value;
+          const synopsis = synopsisRef.current.value;
+          const status = statusRef.current.value;
           createMovie(title, trailer, synopsis, rating, poster, cast, director, category, status).then(response => {
             if (Number.isInteger(response.id)) {
               console.log("Movie added"); //Movie creation successful
@@ -49,11 +49,6 @@ export const AdminAddMovie = () => {
       <>
         <div className = "adminaddmovie">
             <h1>Add Movie</h1>
-            <button className="addmoviebutton" type="submit">
-                <img src="imgs/addMovie.png" alt="+"/>
-
-            </button>
-
             <div className = "addmovieform">
                 <input className = "addmovieinput" name="movie" ref={titleRef} placeholder="movie title" />
                 <input className = "addmovieinput" name="rating" ref={ratingRef} placeholder="MPAA-US film rating code" />
