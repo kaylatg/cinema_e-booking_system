@@ -39,7 +39,7 @@ export const Login = ({stateChanger}) => {
         <h1>Welcome Back Cinner!</h1>
 	        <div className = "login-form">
 		        <input className = "login-form-email" ref = {emailRef} name="email" placeholder="email" />
-		        <input className = "login-form-password" ref = {passRef} name="password" placeholder="password" />
+		        <input className = "login-form-password" ref = {passRef} name="password" placeholder="password" type="password"/>
             <button className = "login-form-button" onClick = {event => handleSubmit(event)}>Log in</button>
             <a className = "login-form-signup" href="/signup">Don't have an account? Sign up!</a>
             <a className = "login-form-signup" href="/forgotpassword">Forgot password</a>

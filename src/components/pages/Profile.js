@@ -29,8 +29,8 @@ export const Profile = ({stateChanger}) => {
            <img src = "https://images.nightcafe.studio//assets/profile.png?tr=w-1600,c-at_max"></img>
              <label className = "signup-form-email" ref = {emailRef} name="email" placeholder="email" />
              <input className = "signup-form-username" ref = {userRef} name="username" placeholder="username" />
-             <input className = "signup-form-password" ref = {passRef} name="password" placeholder="password" />
-             <input className = "signup-form-verify-password" ref = {verPassRef} name="verify-password" placeholder="verify password" />
+             <input className = "signup-form-password" ref = {passRef} name="password" placeholder="password" type="password"/>
+             <input className = "signup-form-verify-password" ref = {verPassRef} name="verify-password" placeholder="verify password" type="password"/>
              <input className = "signup-form-phone" ref = {phoneRef} name="phone" placeholder="phone number"/>
              <input className = "signup-form-first-name" ref = {fnameRef} name="first-name" placeholder="first name"/>
              <input className = "signup-form-last-name" ref = {lnameRef} name="last-name" placeholder="last name"/>
@@ -83,8 +83,8 @@ export const Profile = ({stateChanger}) => {
            <img src = "https://images.nightcafe.studio//assets/profile.png?tr=w-1600,c-at_max"></img>
              <label className = "signup-form-email" ref = {emailRef} name="email">{response.email}</label>
              <input className = "signup-form-username" ref = {userRef} name="username" placeholder = "username" defaultValue={response.username}/>
-             <input className = "signup-form-password" ref = {passRef} name="password" placeholder = "password"  defaultValue={response.password} />
-             <input className = "signup-form-verify-password" ref = {verPassRef} name="verify-password" placeholder = "verify password" defaultValue={response.password} />
+             <input className = "signup-form-password" ref = {passRef} name="password" placeholder = "password"  defaultValue={response.password} type="password"/>
+             <input className = "signup-form-verify-password" ref = {verPassRef} name="verify-password" placeholder = "verify password" defaultValue={response.password} type="password"/>
              <input className = "signup-form-phone" ref = {phoneRef} name="phone" placeholder = "phone number" defaultValue={response.phone}/>
              <input className = "signup-form-first-name" ref = {fnameRef} name="first-name" placeholder = "first name" defaultValue={response.firstName}/>
              <input className = "signup-form-last-name" ref = {lnameRef} name="last-name" placeholder = "last name"  defaultValue={response.lastName}/>
