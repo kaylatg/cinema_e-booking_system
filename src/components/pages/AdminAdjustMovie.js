@@ -46,11 +46,12 @@ export const AdminAdjustMovie = () => {
     return (
       <>
         <div className = "adminadjustmovie">
-            <h1>Manage Movie</h1>
-            <h2 className = "movie-title">{movie.title}</h2>
-            <a href = "/adminmovies">go back</a>
+            <div id="goback"><a href = "/adminmovies">&#8678; back</a></div>
+            <h2>Managing...</h2>
+            <h1 className = "movie-title">{movie.title}</h1>
+            <img src={movie.poster} alt={`Photo of the movie poster for ${movie.title}`} />
             <div className = "showtime-form">
-            <h1>CURRENT SHOWTIMES</h1>
+            <h1 id="current">CURRENT SHOWTIMES</h1>
           <div className="showtime-container">
             {Object.entries(showtimesByDate).map(([date, showtimes]) => (
               <div className="showtime" key={date}>
@@ -73,12 +74,11 @@ export const AdminAdjustMovie = () => {
               </div>
             ))}
           </div>
-            <hr></hr>
-            <h3>Add Showtime</h3>
-                <input type="datetime-local" name="movie-datetime" defaultValue="2023-04-06T19:30" min="2023-01-01T00:00" max="2023-12-31T00:00" ref = {timeRef}></input>
-                <button onClick={event => handleSubmit(event)}>add</button>
+              <div className="add">
+                <input id="showtimeinput" type="datetime-local" name="movie-datetime" defaultValue="2023-04-06T19:30" min="2023-01-01T00:00" max="2023-12-31T00:00" ref = {timeRef}></input>
+                <button onClick={event => handleSubmit(event)}>add showtime</button>
+              </div>
             </div>
-            <hr></hr>
         </div>
       </>
     )
