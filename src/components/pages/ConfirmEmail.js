@@ -33,7 +33,7 @@ function ConfirmEmail() {
           <form className="login">
           <h1>Input Confirmation Code</h1>
               <div className = "login-form">
-                  <input className = "login-form-email" ref = {codeRef} name="email" placeholder="email" />
+                  <input className = "login-form-email" ref = {codeRef} name="confirmation" placeholder="confirmation number" />
               <button className = "login-form-button" onClick = {event => handleSubmit(event)}>Confirm</button>
               <p id = "errorMessage"></p>
             </div>
