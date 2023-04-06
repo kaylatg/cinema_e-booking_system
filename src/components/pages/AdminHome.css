@@ -8,8 +8,19 @@
 }
 
 .admin-buttons {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 20% 20% 20%;
+    justify-content: center;
+    margin-top: 200px;
+    gap: 100px;
+    height: 200px;
+}
+
+.admin-buttons button {
+    border-radius: 50%;
+    margin-top: 0px;
+    width: 200px;
+    height: 100%;
 }
 
 .adminhome a {

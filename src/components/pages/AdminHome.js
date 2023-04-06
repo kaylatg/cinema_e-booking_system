@@ -25,8 +25,8 @@ export const AdminHome = () => {
             <div className = "admin-buttons">
                 <button classname = "admin-button"><a href = "/AdminMovies">Manage Movies</a></button>
                 <button classname = "admin-button"><a href = "/AdminPromos">Manage Promotions</a></button>
+                <button classname = "admin-button" onClick={event => handleSubmit(event)}>Setup Theatre Configuration</button>
             </div>
-            <button classname = "admin-button" onClick={event => handleSubmit(event)}>Setup Theatre Configuration</button>
         </div>
       </>
     )
