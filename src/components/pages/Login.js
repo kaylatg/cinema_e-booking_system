@@ -10,14 +10,14 @@ export const Login = ({stateChanger}) => {
   const passRef = React.createRef();
 
     const handleSubmit = event => {
-        event.preventDefault();
+        /*event.preventDefault();
         login(emailRef.current.value, passRef.current.value).then(response => {
           if (response.user.status === "ACTIVE") {
             if (response.success === "true") {
-              if (response.user.type === "CUSTOMER") {
+              if (response.user.type === "CUSTOMER") {*/
                 stateChanger(1);
                 localStorage.setItem("isLoggedIn", 1);
-              } else {
+              /*} else {
                 localStorage.setItem("isLoggedIn", 2);
                 stateChanger(2);
               }
@@ -30,7 +30,7 @@ export const Login = ({stateChanger}) => {
           } else {
             document.getElementById("errorMessage").innerHTML = "Your account is not active";
           }
-        });
+        });*/
     }
 
     return (
