@@ -66,15 +66,27 @@ export async function verifySession(token) {
 
 /* given a user's email and password, returns a JWT token that will be valid for a set period of time*/
 export async function login(email, password) {
-    const response = await fetch('http://localhost:8081/api/login?' + new URLSearchParams({
-        email: email,
-        password: password,
-    }), {
-        method: 'GET',
-        headers: {'Content-Type': 'application/json'},
-    });
-    let output = await response.json();
-    return output;
+    try {
+        const response = await fetch('http://localhost:8081/api/login?' + new URLSearchParams({
+            email: email,
+            password: password,
+        }), {
+            method: 'GET',
+            headers: {'Content-Type': 'application/json'},
+        });
+        let output = await response.json();
+        return output;
+    } catch (error) {
+        const response = await fetch('http://localhost:8081/api/login?' + new URLSearchParams({
+            email: email,
+            password: password,
+        }), {
+            method: 'GET',
+            headers: {'Content-Type': 'application/json'},
+        });
+        let output = await response.text();
+        return output;
+    }
 }
 
 /* Given a user's registration information, creates a new user and returns their data if it saved successfully in the DB, or an error is there was an issue */
