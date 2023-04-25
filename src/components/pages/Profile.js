@@ -94,7 +94,7 @@ export const Profile = ({stateChanger}) => {
              <button className = "update-profile-button" onClick = {event => handleSubmit(event)}>Update Profile</button>
          </div>
          <div className = "signup-form-promotions">
-              <input className= "signup-form-checkbox" ref = {promoRef} type = "checkbox" id = "promotions" name = "promotions"></input>
+              <input className= "signup-form-checkbox" ref = {promoRef} type = "checkbox" id = "promotions" name = "promotions" defaultChecked={response.recievePromotions}></input>
               <label className = "signup-form-checkbox-label"for = "promotions">Receive emails from Cine City to get exclusive movie promotions and discounts.</label>
               <hr></hr>
               <p id = "errorMessage"></p>
@@ -108,6 +108,8 @@ export const Profile = ({stateChanger}) => {
  
      </div>);
     })
+
+    //<button className = "adminview" onClick={event => adminlogin(event)}>Switch to Admin View</button>
 
 
       return (

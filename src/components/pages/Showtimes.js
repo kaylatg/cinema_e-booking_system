@@ -30,25 +30,7 @@ export const Showtimes = () => {
     acc[showDate].push(showtime);
     return acc;
   }, {});
-  
-  /* 
-    We need to display all movie information on this page as well as the showtimes.
-    The following variables hold the information we need to display:
-      movie.title (movie title)
-      movie.trailer (embed link to movie trailer)
-      movie.description (movie description)
-      movie.rating (movie rating)
-      movie.poster (link to movie poster)
-      movie.actors (list of actors in a movie, all in one string)
-      movie.director (director of the movie)
-      movie.category  (category of the movie)
 
-    Here is what the deliverable requirement states:
-      Select a movie and test if movie browse information is displayed 15 points
-      Beside the browse results, a more detailed page is displayed containing all movie info:
-      Title, category, cast, director, producer, synopsis, reviews, trailer picture and video,
-      MPAA-US film rating code, and show dates and times.
-  */
   return (
     <>
       <div className="showtimes">
@@ -66,11 +48,6 @@ export const Showtimes = () => {
           <h1>{movie.title}</h1>
           <p>{movie.description}</p>
           <hr />
-          <p>rating: {movie.rating}</p>
-          <p>poster: {movie.poster}</p>
-          <p>cast: {movie.actors}</p>
-          <p>director: {movie.director}</p>
-          <p>category: {movie.category}</p>
           <h1>SHOWTIMES</h1>
           <div className="showtime-container">
             {Object.entries(showtimesByDate).map(([date, showtimes]) => (

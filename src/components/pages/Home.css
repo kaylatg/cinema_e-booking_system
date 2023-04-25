@@ -29,12 +29,49 @@ h1 {
     flex-flow:row;  
     
 }
+
+
 .currentlyShowing-movie {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: 500px;
     padding: 2%;
     width: 100%;
-}
+  }
+
+  .comingSoon-movie {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    padding: 2%;
+    width: 100%;
+  }
+  
+  .currentlyShowing-movie img {
+    width: 15%;
+    position: center;
+    margin-top: 20px;
+  }
+
+  .comingSoon-movie img {
+    width: 15%;
+    position: center;
+    margin-top: 20px;
+  }
+  
+  .movie-title {
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    width: 20%;
+    font-size: 150%;
+  }
 
 .currentlyShowing-button {
     width: 90%;
@@ -46,12 +83,6 @@ h1 {
     height: 30%;
     overflow-x: auto;
     flex-flow:row;  
-}
-.comingSoon-movie {
-    display: flex;
-    height: 500px;
-    padding: 2%;
-    width: 100%;
 }
 
 .searchContainer {

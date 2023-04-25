@@ -49,7 +49,7 @@ return (
         <img src="./images/CINE CITY.png" alt="HTML5 Icon" />
       </div>
       <div className="searchContainer">
-        <select className="searchType">
+        <select className="searchType" value={searchType} onChange={handleSearchTypeChange}>
           <option>
             <input
               type="radio"
@@ -92,7 +92,7 @@ return (
         {moviesUpcoming.filter(filterMovies).map((movie) => (
           <Link
             className="comingSoon-movie"
-            to="/showtimes"
+            to="/movieinfo"
             key={movie.id}
             onClick={(event) => localStorage.setItem('movieid', movie.id)}
           >
@@ -100,6 +100,7 @@ return (
               src={movie.poster}
               alt={`Photo of the movie poster for ${movie.title}`}
             />
+            <div className="movie-title">{movie.title} ({movie.rating})</div>
           </Link>
         ))}
       </div>
@@ -110,7 +111,7 @@ return (
         {moviesPlaying.filter(filterMovies).map((movie) => (
           <Link
             className="currentlyShowing-movie"
-            to="/showtimes"
+            to="/movieinfo"
             key={movie.id}
             onClick={(event) => localStorage.setItem('movieid', movie.id)}
           >
@@ -118,6 +119,7 @@ return (
               src={movie.poster}
               alt={`Photo of the movie poster for ${movie.title}`}
             />
+            <h1 className="movie-title">{movie.title} ({movie.rating})</h1>
           </Link>
         ))}
       </div>

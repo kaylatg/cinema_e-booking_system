@@ -15,9 +15,9 @@ export const AdminPromos = () => {
         event.preventDefault()
         createPromotion(discountRef.current.value, '2023-04-03', dateRef.current.value + ":00", codeRef.current.value).then((data) => {
             if (Number.isInteger(data.id)) {
-              console.log("success") // Promotion was successfully added
+              document.getElementById("errorMessage").innerHTML = "Promotion added Successfully"
             } else {
-              console.log("failure") // Promotion was not added, likely cause it already exists, may wanna display it somewhere in UI
+              document.getElementById("errorMessage").innerHTML = "Promotion could not be added, the code may already be in use"
             }
         })
     }
@@ -35,6 +35,7 @@ export const AdminPromos = () => {
                 <input type="datetime-local" name="movie-datetime" defaultValue="2023-04-06T19:30" min="2023-01-01T00:00" max="2023-12-31T00:00" ref = {dateRef}></input>
                 <button onClick={event => handleSubmit(event)}>add</button>
             </div>
+            <p id="errorMessage"></p>
         </div>
       </>
     )
