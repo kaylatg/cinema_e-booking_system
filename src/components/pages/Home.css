@@ -50,6 +50,16 @@ h1 {
     padding: 2%;
     width: 100%;
   }
+
+  .no-movies {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    /* Width should be 100% for left-right and 0% for top-bottom */
+    width: 100%;
+  }
   
   .currentlyShowing-movie img {
     width: 15%;

@@ -3,7 +3,9 @@ import '../../App.css'
 import './Checkout.css'
 import './Tickets.css'
 import { useNavigate } from "react-router-dom";
-import {addCardById} from '../../services/FromApi.js'
+import {addCardById, getUser} from '../../services/FromApi.js'
+import { getUpcomingShowsForMovie } from '../../services/FromApiMovies';
+import { createOrder } from '../../services/FromApiBookings';
 
 
 export const Checkout = () => {
@@ -19,6 +21,25 @@ export const Checkout = () => {
     const stateRef = React.createRef();
     const zipRef = React.createRef();
     const countryRef = React.createRef();
+    const promoRef = React.createRef();
+    const ticketAgeRef = React.createRef();
+
+    const [tickets, setTickets] = React.useState([]); 
+    const [paymentCards, setPaymentCards] = React.useState([]);
+    const [show, setShow] = React.useState();
+    const seats = JSON.parse(localStorage.getItem("seats"));
+    let card;
+
+    React.useEffect(() => {
+        getUser(localStorage.getItem("email")).then(response => {
+            setPaymentCards(response.payments);
+        });
+
+        getUpcomingShowsForMovie(localStorage.getItem('movieid'), '2023-04-01 00:00:00').then((data) => {
+            setShow(data);
+            console.log(data);
+        });
+    }, []);
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -27,54 +48,61 @@ export const Checkout = () => {
              zipRef.current.value.length < 1 || countryRef.current.value.length < 1) { 
               document.getElementById("errorMessage").innerHTML = "Please fill out all fields before submitting form";
           } else {
-            addCardById(userRef.current.value, emailRef.current.value, nameRef.current.value, numRef.current.value, expRef.current.value, 
-              cvvRef.current.value, streetRef.current.value, cityRef.current.value,zipRef.current.value,
-              countryRef.current.value).then(response =>{
-              if (response.success === true) {
-                navigate("/confirmation", {replace: true});
-              } else {
-                document.getElementById("errorMessage").innerHTML = "Invalid card information"
-              }
+            addCardById(localStorage.getItem("id"), numRef.current.value, nameRef.current.value, expRef.current.value, cvvRef.current.value,
+            streetRef.current.value, cityRef.current.value, stateRef.current.value, zipRef.current.value, countryRef.current.value).then(response =>{
+              getUser(localStorage.getItem("email")).then(response => {
+                setPaymentCards(response.payments);
+              });
             })
         }
     }
+
+    const placeOrder = () => {
+        createOrder(localStorage.getItem("id"), show.id, paymentCards[0].id, tickets).then(response => {
+            navigate("/confirmation");
+        });
+    }
+
+    const handleSelectCard = (index) => {
+        card = paymentCards[index];
+    }
+
     return (
         <>
         <div className = "checkout">
             <div className = "checkout-container">
-                <div className = "cart">
-                <div className = "tickets">
-                <h1>YOUR CART</h1> 
-                <div className = "ticket">
-                    <img className = "ticket-movie" src="https://m.media-amazon.com/images/M/MV5BYjhiNjBlODctY2ZiOC00YjVlLWFlNzAtNTVhNzM1YjI1NzMxXkEyXkFqcGdeQXVyMjQxNTE1MDA@._V1_FMjpg_UX1000_.jpg" alt="Photo of the movie poster for Avatar: The Way of the Water"/>
-                    <h2 className = "ticket-title">Avatar: The Way of the Water</h2>
-                    
-                    <h4 className = "ticket-date">2/17/2023</h4>
-                    <h4 className = "ticket-time">7:30 PM</h4>
-                    <select className = "ticket-age">
-                        <option>Adult</option>
-                        <option>Child</option>
-                    </select>
-                    <h4 className = "ticket-seat">Row C seat 3</h4>
-                    <h4 className = "ticket-price">$10.00</h4>                
+            <div className="cart">
+                <div className="tickets">
+                    <h1>YOUR CART</h1>
+                    {seats.map((seat) => (
+                    <div className="ticket" key={seat.id}>
+                        <img
+                        className="ticket-movie"
+                        src={show.movie.poster}
+                        alt={`Photo of the movie poster for ${show.movie.title}`}
+                        />
+                        <h2 className="ticket-title">{show.movie.title}</h2>
+
+                        <h4 className="ticket-date">{show.showStart}</h4>
+                        <h4 className="ticket-time">7:30 PM</h4>
+                        <h4 className="ticket-seat">{`Row ${seat.row} seat ${seat.seatNumber}`}</h4>
+                        <h4 className="ticket-price">$10.00</h4>
+                    </div>
+                    ))}
                 </div>
-                <a href = "/my-tickets">delete</a>
-                <div className = "ticket">
-                    <img className = "ticket-movie" src="https://m.media-amazon.com/images/M/MV5BYjhiNjBlODctY2ZiOC00YjVlLWFlNzAtNTVhNzM1YjI1NzMxXkEyXkFqcGdeQXVyMjQxNTE1MDA@._V1_FMjpg_UX1000_.jpg" alt="Photo of the movie poster for Avatar: The Way of the Water"/>
-                    <h2 className = "ticket-title">Avatar: The Way of the Water</h2>
-                    <h4 className = "ticket-date">2/17/2023</h4>
-                    <h4 className = "ticket-time">7:30 PM</h4>
-                    <select className = "ticket-age">
-                        <option>Adult</option>
-                        <option>Child</option>
-                    </select>
-                    <h4 className = "ticket-seat">Row C seat 4</h4>
-                    <h4 className = "ticket-price">$10.00</h4>                    
+                <h1>{`YOUR TOTAL: $${seats.length * 10}.00`}</h1>
+            </div>
+
+                <div>
+                    {paymentCards.map((card, index) => (
+                        <div key={index}>
+                        <p>Card Number: {card.cardNumber}</p>
+                        <p>Card Name: {card.cardName}</p>
+                        <button onClick={() => handleSelectCard(index)}>Select Card</button>
+                        </div>
+                    ))}
                 </div>
-                <a href = "/my-tickets">delete</a>
-                 </div>
-                    <h1>YOUR TOTAL: $20.00</h1>
-                </div>
+
                 <div className = "checkout-form">
                     <input className = "checkout-form-username" ref = {userRef} name="usename" placeholder="username" />
                     <input className = "checkout-form-email" ref = {emailRef} name="email" placeholder="email" />

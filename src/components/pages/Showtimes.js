@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import '../../App.css'
 import './Showtimes.css'
 import { getMovie, getUpcomingShowsForMovie } from '../../services/FromApiMovies'
@@ -9,6 +9,8 @@ export const Showtimes = () => {
 
   const [movie, setMovie] = React.useState([]);
   const [showtimes, setShowtimes] = React.useState([]);
+
+  const navigate = useNavigate();
   
   React.useEffect(() => {
     getMovie(localStorage.getItem('movieid')).then((data) => {
@@ -59,6 +61,12 @@ export const Showtimes = () => {
                     className="showtime-item"
                     to="/seats"
                     key={showtime.id}
+                    onClick={() => {
+                      localStorage.setItem("showtimeid", showtime.id);
+                      if (localStorage.getItem("isLoggedIn") === "0") {
+                        navigate("/login")
+                      }
+                    }}
                   >
                     {new Date(showtime.showStart).toLocaleTimeString([], {
                       hour: "numeric",

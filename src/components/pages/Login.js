@@ -24,6 +24,7 @@ export const Login = ({stateChanger}) => {
               navigate("/", {replace: true}); // true or statechanger num?
               localStorage.setItem('token', response.key);
               localStorage.setItem('email', response.user.email);
+              localStorage.setItem('id', response.user.id);
             } else {
               document.getElementById("errorMessage").innerHTML = "Your account is not active";
             }

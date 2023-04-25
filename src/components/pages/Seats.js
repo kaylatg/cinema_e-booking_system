@@ -3,10 +3,20 @@ import {Link} from 'react-router-dom'
 import '../../App.css'
 import './Seats.css'
 import { useNavigate } from "react-router-dom";
+import { getShow } from '../../services/FromApiMovies';
 
 
 export const Seats = () => {
     const navigate = useNavigate();
+
+    const [show, setShow] = React.useState();
+
+    React.useEffect(() => {
+        getShow(localStorage.getItem("showtimeid")).then((data) => {
+            setShow(data);
+            console.log(data);
+        });
+    }, []);
 
     const handleSubmit = event => {
      

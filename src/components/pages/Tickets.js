@@ -1,32 +1,35 @@
 import React from 'react'
 import '../../App.css'
 import './Tickets.css'
+import { getUserOrders } from '../../services/FromApiBookings'
 
 export const Tickets = () => {
-  
+
+    const [orders, setOrders] = React.useState([]);
+
+    React.useEffect(() => {
+        getUserOrders(localStorage.getItem('id')).then((data) => {
+            setOrders(data);
+            console.log(data);
+        });
+    }, []);
+
     return (
         <>
-        <div className = "tickets">
-        <h1>MY TICKETS</h1> 
-            <div className = "tickets-container">
-                <div className = "ticket">
-                    <img className = "ticket-movie" src="https://m.media-amazon.com/images/M/MV5BYjhiNjBlODctY2ZiOC00YjVlLWFlNzAtNTVhNzM1YjI1NzMxXkEyXkFqcGdeQXVyMjQxNTE1MDA@._V1_FMjpg_UX1000_.jpg" alt="Photo of the movie poster for Avatar: The Way of the Water"/>
-                    <h2 className = "ticket-title">Avatar: The Way of the Water</h2>
-                    <h4 className = "ticket-date">2/17/2023</h4>
-                    <h4 className = "ticket-time">7:30 PM</h4>
-                    <h4 className = "ticket-age">Adult</h4>
-                    <h4 className = "ticket-seat">Row C seat 3</h4>
-                </div>
-                <div className = "ticket">
-                    <img className = "ticket-movie" src="https://m.media-amazon.com/images/M/MV5BYjhiNjBlODctY2ZiOC00YjVlLWFlNzAtNTVhNzM1YjI1NzMxXkEyXkFqcGdeQXVyMjQxNTE1MDA@._V1_FMjpg_UX1000_.jpg" alt="Photo of the movie poster for Avatar: The Way of the Water"/>
-                    <h2 className = "ticket-title">Avatar: The Way of the Water</h2>
-                    <h4 className = "ticket-date">2/17/2023</h4>
-                    <h4 className = "ticket-time">7:30 PM</h4>
-                    <h4 className = "ticket-age">Child</h4>
-                    <h4 className = "ticket-seat">Row C seat 4</h4>
-                </div>
+        <div className="tickets">
+            <h1>MY TICKETS</h1>
+            <div className="tickets-container">
+                {orders.map((order, index) => (
+                    <div className="ticket" key={index}>
+                        <img className="ticket-movie" src={order.show.movie.poster} alt={`Photo of the movie poster for ${order.show.movie.title}`} />
+                        <h2 className="ticket-title">{order.show.movie.title}</h2>
+                        <h4 className="ticket-date">{order.show.showStart}</h4>
+                        <h4 className="ticket-time">{order.tickets[index].type}</h4>
+                        <h4 className="ticket-age">{order.tickets[index].seat}</h4>
+                    </div>
+                ))}
             </div>
         </div>
         </>
-    )
+    );
 }
