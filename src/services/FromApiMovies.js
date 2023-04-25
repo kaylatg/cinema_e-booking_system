@@ -193,4 +193,86 @@ export async function getTheatre(id) {
     return output;
 }
 
-// ONLY MISSING GET ALL MOVIES
+export async function addSeats(theatreId, showroomId) {
+    const seats = [
+        {
+            row: "A",
+            seatNumber: 1,
+            showRoomId: showroomId
+        },
+        {
+            row: "A",
+            seatNumber: 2,
+            showRoomId: showroomId
+        },
+        {
+            row: "A",
+            seatNumber: 3,
+            showRoomId: showroomId
+        },
+        {
+            row: "A",
+            seatNumber: 4,
+            showRoomId: showroomId
+        },
+        {
+            row: "A",
+            seatNumber: 5,
+            showRoomId: showroomId
+        },
+        {
+            row: "A",
+            seatNumber: 6,
+            showRoomId: showroomId
+        },
+        {
+            row: "A",
+            seatNumber: 7,
+            showRoomId: showroomId
+        },
+        {
+            row: "B",
+            seatNumber: 1,
+            showRoomId: showroomId
+        },
+        {
+            row: "B",
+            seatNumber: 2,
+            showRoomId: showroomId
+        },
+        {
+            row: "B",
+            seatNumber: 3,
+            showRoomId: showroomId
+        },
+        {
+            row: "B",
+            seatNumber: 4,
+            showRoomId: showroomId
+        },
+        {
+            row: "B",
+            seatNumber: 5,
+            showRoomId: showroomId
+        },
+        {
+            row: "B",
+            seatNumber: 6,
+            showRoomId: showroomId
+        },
+        {
+            row: "B",
+            seatNumber: 7,
+            showRoomId: showroomId
+        },
+    ];
+
+    const response = await fetch(`http://localhost:8081/api/theatre/${theatreId}/show-room/${showroomId}/seats`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(seats),
+    });
+
+    const output = await response.json();
+    return output;
+}
