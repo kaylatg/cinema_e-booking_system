@@ -157,28 +157,10 @@ export async function setupShowrooms(theatreId) {
         }),
     });
 
-    let output1 = await response.json();
+    let output = await response.json();
+    const showroomId = output.id;
 
-    const response2 = await fetch('http://localhost:8081/api/theatre/' + theatreId + '/show-room', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-            theatreId: theatreId,
-            name: "Showroom 2",
-        }),
-    });
-
-    let output2 = await response2.json();
-
-    const response3 = await fetch('http://localhost:8081/api/theatre/' + theatreId + '/show-room', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-            theatreId: theatreId,
-            name: "Showroom 3",
-        }),
-    });
-    let output3 = await response3.json();
+    addSeats(theatreId, showroomId);
     
     return getTheatre(theatreId);
 }
