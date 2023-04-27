@@ -13,3 +13,8 @@ body {
     border: none;
     margin: 2%;
   }
+
+  #errorMessage {
+    color: #B53030;
+    font-size: 18px;
+  }

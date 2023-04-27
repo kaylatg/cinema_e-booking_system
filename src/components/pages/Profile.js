@@ -26,7 +26,6 @@ export const Profile = ({stateChanger}) => {
     (<div className="profile">
      <h1>Edit profile</h1>
          <div className = "profile-container">
-           <img src = "https://images.nightcafe.studio//assets/profile.png?tr=w-1600,c-at_max"></img>
              <label className = "signup-form-email" ref = {emailRef} name="email" placeholder="email" />
              <input className = "signup-form-username" ref = {userRef} name="username" placeholder="username" />
              <input className = "signup-form-password" ref = {passRef} name="password" placeholder="password" type="password"/>
@@ -38,13 +37,15 @@ export const Profile = ({stateChanger}) => {
              <input className = "signup-form-last-name" ref = {stateRef} name="state" placeholder="state"/>
              <input className = "signup-form-last-name" ref = {zipRef} name="zip" placeholder="zip"/>
              <input className = "signup-form-last-name" ref = {countryRef} name="country" placeholder="country"/>
-             <button className = "update-profile-button" onClick = {event => handleSubmit(event)}>Update Profile</button>
-         </div>
-         <div className = "signup-form-promotions">
+            <div className = "signup-form-promotions">
                <input className= "signup-form-checkbox" ref = {promoRef} type = "checkbox" id = "promotions" name = "promotions"></input>
                <label className = "signup-form-checkbox-label"for = "promotions">Receive emails from Cine City to get exclusive movie promotions and discounts.</label>
-             </div>
- 
+            </div>
+            <button className = "update-profile-button" onClick = {event => handleSubmit(event)}>Update Profile</button>
+            <p id = "errorMessage"></p>
+            <a className = "login-form-signup" href="/cards">Add Payment Card</a>
+
+        </div>
      </div>)
   );
 
@@ -79,7 +80,6 @@ export const Profile = ({stateChanger}) => {
      setProfileForm(<div className="profile">
      <h1>Edit profile</h1>
          <div className = "profile-container">
-           <img src = "https://images.nightcafe.studio//assets/profile.png?tr=w-1600,c-at_max"></img>
              <label className = "signup-form-email" ref = {emailRef} name="email">{response.email}</label>
              <input className = "signup-form-username" ref = {userRef} name="username" placeholder = "username" defaultValue={response.username}/>
              <input className = "signup-form-password" ref = {passRef} name="password" placeholder = "password" type="password"/>
@@ -91,21 +91,17 @@ export const Profile = ({stateChanger}) => {
              <input className = "signup-form-last-name" ref = {stateRef} name="state" placeholder = "state"  defaultValue={response.address.state}/>
              <input className = "signup-form-last-name" ref = {zipRef} name="zip" placeholder = "zip" defaultValue={response.address.zipcode}/>
              <input className = "signup-form-last-name" ref = {countryRef} name="country" placeholder = "country" defaultValue={response.address.country}/>
-             <button className = "update-profile-button" onClick = {event => handleSubmit(event)}>Update Profile</button>
-         </div>
-         <div className = "signup-form-promotions">
-              <input className= "signup-form-checkbox" ref = {promoRef} type = "checkbox" id = "promotions" name = "promotions" defaultChecked={response.recievePromotions}></input>
-              <label className = "signup-form-checkbox-label"for = "promotions">Receive emails from Cine City to get exclusive movie promotions and discounts.</label>
-              <hr></hr>
-              <p id = "errorMessage"></p>
-        </div>
-        <hr></hr>
-        <a className = "login-form-signup" href="/cards">Add Payment Card</a>
-        <hr></hr>
-        <button className = "adminview" onClick={event => adminlogin(event)}>Switch to Admin View</button>
+              <div className = "signup-form-promotions">
+                <input className= "signup-form-checkbox" ref = {promoRef} type = "checkbox" id = "promotions" name = "promotions" defaultChecked={response.recievePromotions}></input>
+                <label className = "signup-form-checkbox-label"for = "promotions">Receive emails from Cine City to get exclusive movie promotions and discounts.</label>
+              </div>
+              <button className = "update-profile-button" onClick = {event => handleSubmit(event)}>Update Profile</button>
+              <p id = "errorMessage"></p>  
+              <a className = "login-form-signup" href="/cards">Add Payment Card</a>
+        //<button className = "adminview" onClick={event => adminlogin(event)}>Switch to Admin View</button>
 
              
- 
+      </div>
      </div>);
     })
 
