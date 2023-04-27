@@ -199,3 +199,12 @@ export async function removeCardById(userId, cardId) {
     let output = await response.json();
     return output;
 }
+
+export async function getPromotion(code) {
+    const response = await fetch('http://localhost:8081/api/promotion?code=' + code, {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'},
+    });
+    let output = await response.json();
+    return output;
+}

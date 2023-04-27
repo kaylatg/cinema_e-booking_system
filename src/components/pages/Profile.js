@@ -102,7 +102,6 @@ export const Profile = ({stateChanger}) => {
         <hr></hr>
         <a className = "login-form-signup" href="/cards">Add Payment Card</a>
         <hr></hr>
-        <button className = "adminview" onClick={event => adminlogin(event)}>Switch to Admin View</button>
 
              
  

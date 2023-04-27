@@ -17,7 +17,7 @@
 }
 
 .checkout-form {
-    padding-top: 20px;
+    padding-top: 200px;
     display: flex;
     flex-flow: column;
     margin: auto;
@@ -50,4 +50,19 @@
     text-decoration: underline;
     padding-left: 500px;
 }
+
+.payment-card-wrapper {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  #promocode {
+    font-size: 50%;
+  }
+
+  #errorMessage {
+    color: red;
+    font-size: 50%;
+  }
 
